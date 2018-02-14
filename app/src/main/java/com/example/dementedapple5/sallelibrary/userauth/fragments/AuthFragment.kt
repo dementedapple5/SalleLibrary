@@ -1,4 +1,4 @@
-package com.example.dementedapple5.sallelibrary.userauth
+package com.example.dementedapple5.sallelibrary.userauth.fragments
 
 import android.content.Context
 import android.net.Uri

@@ -1,9 +1,10 @@
-package com.example.dementedapple5.sallelibrary
+package com.example.dementedapple5.sallelibrary.userauth
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.example.dementedapple5.sallelibrary.R
 
-class Login : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

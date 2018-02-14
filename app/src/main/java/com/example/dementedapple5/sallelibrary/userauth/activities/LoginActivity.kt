@@ -1,4 +1,4 @@
-package com.example.dementedapple5.sallelibrary.userauth
+package com.example.dementedapple5.sallelibrary.userauth.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -16,7 +16,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         mSectionsPageAdapter = SectionsPagerAdapter(supportFragmentManager)
-        
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

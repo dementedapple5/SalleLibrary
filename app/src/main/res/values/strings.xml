@@ -11,4 +11,7 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="tabtext_login">Iniciar sesión</string>
     <string name="tabtext_signup">Registrarse</string>
+    <string name="auth_et_username">Nombre de usuario</string>
+    <string name="auth_et_password">Contraseña</string>
+    <string name="auth_bu_text">Iniciar sesión</string>
 </resources>

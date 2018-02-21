@@ -20,7 +20,8 @@
         <activity
             android:name=".userauth.MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".splashscreen.SplashScreenActivity"></activity>
     </application>
 
 </manifest>

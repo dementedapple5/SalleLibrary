@@ -14,4 +14,5 @@
     <string name="auth_et_username">Nombre de usuario</string>
     <string name="auth_et_password">Contraseña</string>
     <string name="auth_bu_text">Iniciar sesión</string>
+    <string name="signup_google">Inicia con Google</string>
 </resources>

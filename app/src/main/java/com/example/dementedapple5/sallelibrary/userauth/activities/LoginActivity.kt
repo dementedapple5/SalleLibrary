@@ -10,7 +10,7 @@ import android.view.View
 import android.widget.Toast
 import com.example.dementedapple5.sallelibrary.R
 import com.example.dementedapple5.sallelibrary.mainmenu.MainMenuActivity
-import com.example.dementedapple5.sallelibrary.userauth.adapters.SectionsPagerAdapter
+import com.example.dementedapple5.sallelibrary.mainmenu.TabbedActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -58,7 +58,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, OnCompleteListe
 
     override fun onComplete(task: Task<AuthResult>) {
         if (task.isSuccessful) {
-            val intent = Intent(this, MainMenuActivity::class.java)
+            val intent = Intent(this, TabbedActivity::class.java)
             startActivity(intent)
         } else {
             Toast.makeText(this, "Ha pasado algo con el sign in yokse", Toast.LENGTH_LONG).show()

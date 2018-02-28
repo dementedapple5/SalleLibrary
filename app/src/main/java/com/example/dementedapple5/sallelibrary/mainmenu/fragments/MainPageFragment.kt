@@ -1,19 +1,30 @@
-package com.example.dementedapple5.sallelibrary.mainmenu
+package com.example.dementedapple5.sallelibrary.mainmenu.fragments
 
-import android.support.v7.app.AppCompatActivity
+import android.content.Context
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+
 import com.example.dementedapple5.sallelibrary.R
 import com.example.dementedapple5.sallelibrary.mainmenu.adapters.BookShelfAdapter
 import com.example.dementedapple5.sallelibrary.model.Book
 import com.example.dementedapple5.sallelibrary.model.BookShelf
-import kotlinx.android.synthetic.main.activity_main_menu.*
+import kotlinx.android.synthetic.main.fragment_main_page.*
 
-class MainMenuActivity : AppCompatActivity() {
-
+class MainPageFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_menu)
+    }
+
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater!!.inflate(R.layout.fragment_main_page, container, false)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
         val mArrayColor: ArrayList<Int> = ArrayList()
 
@@ -42,7 +53,7 @@ class MainMenuActivity : AppCompatActivity() {
         mArray.add(BookShelf("Thriller", mBookArray))
         mArray.add(BookShelf("Recommended", mBookArray))
 
-        myRecyclerView.setHasFixedSize(true)
+        recycler.setHasFixedSize(true)
 
         /*val mLayoutManager = GridLayoutManager( this, 2, GridLayoutManager.VERTICAL, false)
 
@@ -55,17 +66,16 @@ class MainMenuActivity : AppCompatActivity() {
         }*/
 
 
-        val mLayoutManager = LinearLayoutManager (this, LinearLayoutManager.VERTICAL, false)
+        val mLayoutManager = LinearLayoutManager (activity.applicationContext, LinearLayoutManager.VERTICAL, false)
 
-        myRecyclerView.layoutManager = mLayoutManager
+        recycler.layoutManager = mLayoutManager
 
         val mAdapter = BookShelfAdapter(mArray)
 
-        myRecyclerView.adapter = mAdapter
-
+        recycler.adapter = mAdapter
     }
 
-
-
-
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+    }
 }

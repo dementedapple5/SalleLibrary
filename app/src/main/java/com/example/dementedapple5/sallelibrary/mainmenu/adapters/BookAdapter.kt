@@ -29,8 +29,8 @@ class BookAdapter(val mBooks: ArrayList<Book>): RecyclerView.Adapter<BookAdapter
         return mBooks.size
     }
 
-    override fun onBindViewHolder(holder: MyBookViewHolder?, position: Int) {
-        holder!!.mConstraint.mBookTitle.text = mBooks[position].title
+    override fun onBindViewHolder(holder: MyBookViewHolder, position: Int) {
+        holder.mConstraint.mBookTitle.text = mBooks[position].title
         holder.mConstraint.mBookPrice.text = "${mBooks[position].price.toString()}€"
         holder.mConstraint.mBookImg.setImageResource(mBooks[position].img)
     }

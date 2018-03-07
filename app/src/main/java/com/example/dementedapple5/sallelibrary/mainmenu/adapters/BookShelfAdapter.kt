@@ -1,4 +1,4 @@
-package com.example.dementedapple5.sallelibrary.mainmenu
+package com.example.dementedapple5.sallelibrary.mainmenu.adapters
 
 import android.support.v7.widget.CardView
 import android.support.v7.widget.LinearLayoutManager
@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.dementedapple5.sallelibrary.R
-import com.example.dementedapple5.sallelibrary.models.BookShelf
+import com.example.dementedapple5.sallelibrary.model.BookShelf
 import kotlinx.android.synthetic.main.book_shelf_item.view.*
 
 /**

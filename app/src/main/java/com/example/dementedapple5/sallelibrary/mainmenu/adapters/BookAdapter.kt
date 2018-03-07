@@ -1,4 +1,4 @@
-package com.example.dementedapple5.sallelibrary.mainmenu
+package com.example.dementedapple5.sallelibrary.mainmenu.adapters
 
 import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.RecyclerView
@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.dementedapple5.sallelibrary.R
-import com.example.dementedapple5.sallelibrary.models.Book
+import com.example.dementedapple5.sallelibrary.model.Book
 import kotlinx.android.synthetic.main.book_item.view.*
 
 
@@ -20,9 +20,9 @@ class BookAdapter(val mBooks: ArrayList<Book>): RecyclerView.Adapter<BookAdapter
     }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): MyBookViewHolder{
+    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): MyBookViewHolder {
         val v: View = LayoutInflater.from(parent!!.context).inflate(R.layout.book_item, parent, false)
-        return  MyBookViewHolder(v as ConstraintLayout)
+        return MyBookViewHolder(v as ConstraintLayout)
     }
 
     override fun getItemCount(): Int {

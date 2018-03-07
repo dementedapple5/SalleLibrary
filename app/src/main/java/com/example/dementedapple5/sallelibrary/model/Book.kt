@@ -1,4 +1,4 @@
-package com.example.dementedapple5.sallelibrary.models
+package com.example.dementedapple5.sallelibrary.model
 
 /**
  * Created by dementedapple5 on 22/02/2018.

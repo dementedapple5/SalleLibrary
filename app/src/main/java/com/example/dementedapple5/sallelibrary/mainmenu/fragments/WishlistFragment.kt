@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -11,9 +12,11 @@ import android.view.ViewGroup
 
 import com.example.dementedapple5.sallelibrary.R
 import com.example.dementedapple5.sallelibrary.mainmenu.adapters.BookShelfAdapter
+import com.example.dementedapple5.sallelibrary.mainmenu.adapters.FavBookAdapter
 import com.example.dementedapple5.sallelibrary.model.Book
 import com.example.dementedapple5.sallelibrary.model.BookShelf
 import kotlinx.android.synthetic.main.fragment_main_page.*
+import kotlinx.android.synthetic.main.fragment_wishlist.*
 
 class WishlistFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,44 +39,23 @@ class WishlistFragment : Fragment() {
         mArrayColor.add(R.color.colorAccent)
         mArrayColor.add(R.color.colorPrimaryDark)
 
-        val mBookArray: ArrayList<Book> = ArrayList()
-        val mArray: ArrayList<BookShelf> = ArrayList()
+        val mFavBookArray = ArrayList<Book>()
 
+        mFavBookArray.add(Book("Harry Potter", 5.0f, mArrayColor[0]))
+        mFavBookArray.add(Book("Lord of the Rings", 7.55f, mArrayColor[1]))
+        mFavBookArray.add(Book("Game of Thrones", 6.99f, mArrayColor[2]))
+        mFavBookArray.add(Book("Frankestain", 5.99f, mArrayColor[3]))
+        mFavBookArray.add(Book("Avengers", 5.33f, mArrayColor[4]))
+        mFavBookArray.add(Book("Superman", 8.44f, mArrayColor[5]))
 
-        mBookArray.add(Book("Harry Potter", 5.0f, mArrayColor[0]))
-        mBookArray.add(Book("Lord of the Rings", 7.55f, mArrayColor[1]))
-        mBookArray.add(Book("Game of Thrones", 6.99f, mArrayColor[2]))
-        mBookArray.add(Book("Frankestain", 5.99f, mArrayColor[3]))
-        mBookArray.add(Book("Avengers", 5.33f, mArrayColor[4]))
-        mBookArray.add(Book("Superman", 8.44f, mArrayColor[5]))
+        wishlist_recycler.setHasFixedSize(true)
 
-        mArray.add(BookShelf("Sci-Fi", mBookArray))
-        mArray.add(BookShelf("Adventure", mBookArray))
-        mArray.add(BookShelf("Action", mBookArray))
-        mArray.add(BookShelf("Suspense", mBookArray))
-        mArray.add(BookShelf("Thriller", mBookArray))
-        mArray.add(BookShelf("Recommended", mBookArray))
+        val mLayoutManager = GridLayoutManager(activity.applicationContext, 2, GridLayoutManager.VERTICAL, false)
+        wishlist_recycler.layoutManager = mLayoutManager
 
-        recycler.setHasFixedSize(true)
+        val mAdapter = FavBookAdapter(mFavBookArray)
+        wishlist_recycler.adapter = mAdapter
 
-        /*val mLayoutManager = GridLayoutManager( this, 2, GridLayoutManager.VERTICAL, false)
-
-
-        mLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
-            override fun getSpanSize(position: Int): Int {
-                //stagger rows custom
-                return if (position % 3 == 0) 2 else 1
-            }
-        }*/
-
-
-        val mLayoutManager = LinearLayoutManager (activity.applicationContext, LinearLayoutManager.VERTICAL, false)
-
-        recycler.layoutManager = mLayoutManager
-
-        val mAdapter = BookShelfAdapter(mArray)
-
-        recycler.adapter = mAdapter
     }
 
     override fun onAttach(context: Context?) {

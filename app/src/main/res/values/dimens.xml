@@ -7,4 +7,9 @@
     <dimen name="auth_bu_margintop">50dp</dimen>
     <dimen name="textinputlayout_width">270dp</dimen>
     <dimen name="subtitle">24sp</dimen>
+    <dimen name="card_height">240dp</dimen>
+    <dimen name="items_margin">5dp</dimen>
+    <dimen name="def_margin_left">8dp</dimen>
+    <dimen name="title_size">16sp</dimen>
+    <dimen name="book_width">120dp</dimen>
 </resources>

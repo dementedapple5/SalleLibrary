@@ -20,7 +20,8 @@
         <activity
             android:name=".mainmenu.TabbedActivity"
             android:label="@string/title_activity_tabbed"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".mainmenu.BookDetailsActivity"></activity>
     </application>
 
 </manifest>

@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/mConstBook"
-    android:layout_width="120dp"
+    android:layout_width="@dimen/book_width"
     android:layout_height="match_parent"
     android:layout_margin="5dp">
 

@@ -6,87 +6,29 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.drawable.Drawable
+import android.support.constraint.ConstraintLayout
+import android.support.design.widget.Snackbar
 import android.text.TextPaint
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import android.view.View
+import kotlinx.android.synthetic.main.booklayout.view.*
 
-/**
- * TODO: document your custom view class.
- */
-class BookLayout : View {
-    private var mExampleString: String? = null // TODO: use a default from R.string...
-    private var mExampleColor = Color.RED // TODO: use a default from R.color...
-    private var mExampleDimension = 0f // TODO: use a default from R.dimen...
-    /**
-     * Gets the example drawable attribute value.
-     *
-     * @return The example drawable attribute value.
-     */
-    /**
-     * Sets the view's example drawable attribute value. In the example view, this drawable is
-     * drawn above the text.
-     *
-     * @param exampleDrawable The example drawable attribute value to use.
-     */
-    var exampleDrawable: Drawable? = null
+class BookLayout : ConstraintLayout, View.OnClickListener {
+    private lateinit var mCallback: OnAddedToWishlistListener
 
-    private var mTextPaint: TextPaint? = null
-    private var mTextWidth: Float = 0.toFloat()
-    private var mTextHeight: Float = 0.toFloat()
 
-    /**
-     * Gets the example string attribute value.
-     *
-     * @return The example string attribute value.
-     */
-    /**
-     * Sets the view's example string attribute value. In the example view, this string
-     * is the text to draw.
-     *
-     * @param exampleString The example string attribute value to use.
-     */
-    var exampleString: String?
-        get() = mExampleString
-        set(exampleString) {
-            mExampleString = exampleString
-            invalidateTextPaintAndMeasurements()
+    override fun onClick(view: View?) {
+        when (view?.id) {
+            R.id.button_add_to_wishlist -> {
+                mCallback.onAddedToWishlist(this, book_title.text.toString())
+            }
         }
+    }
 
-    /**
-     * Gets the example color attribute value.
-     *
-     * @return The example color attribute value.
-     */
-    /**
-     * Sets the view's example color attribute value. In the example view, this color
-     * is the font color.
-     *
-     * @param exampleColor The example color attribute value to use.
-     */
-    var exampleColor: Int
-        get() = mExampleColor
-        set(exampleColor) {
-            mExampleColor = exampleColor
-            invalidateTextPaintAndMeasurements()
-        }
-
-    /**
-     * Gets the example dimension attribute value.
-     *
-     * @return The example dimension attribute value.
-     */
-    /**
-     * Sets the view's example dimension attribute value. In the example view, this dimension
-     * is the font size.
-     *
-     * @param exampleDimension The example dimension attribute value to use.
-     */
-    var exampleDimension: Float
-        get() = mExampleDimension
-        set(exampleDimension) {
-            mExampleDimension = exampleDimension
-            invalidateTextPaintAndMeasurements()
-        }
+    interface OnAddedToWishlistListener {
+        fun onAddedToWishlist(source: BookLayout, textToDisplay: String)
+    }
 
     constructor(context: Context) : super(context) {
         init(null, 0)
@@ -101,71 +43,108 @@ class BookLayout : View {
     }
 
     private fun init(attrs: AttributeSet?, defStyle: Int) {
-        // Load attributes
-        val a = context.obtainStyledAttributes(
-                attrs, R.styleable.BookLayout, defStyle, 0)
+        LayoutInflater.from(context).inflate(R.layout.booklayout, this)
 
-        mExampleString = a.getString(
-                R.styleable.BookLayout_exampleString)
-        mExampleColor = a.getColor(
-                R.styleable.BookLayout_exampleColor,
-                mExampleColor)
-        // Use getDimensionPixelSize or getDimensionPixelOffset when dealing with
-        // values that should fall on pixel boundaries.
-        mExampleDimension = a.getDimension(
-                R.styleable.BookLayout_exampleDimension,
-                mExampleDimension)
+        val typedArray: TypedArray = context.obtainStyledAttributes(attrs, R.styleable.BookLayout, defStyle, 0)
 
-        if (a.hasValue(R.styleable.BookLayout_exampleDrawable)) {
-            exampleDrawable = a.getDrawable(
-                    R.styleable.BookLayout_exampleDrawable)
-            exampleDrawable!!.callback = this
-        }
+        setImageOfBook(typedArray.getResourceId(R.styleable.BookLayout_imageOfBook, 0))
+        setBookTitle(typedArray.getString(R.styleable.BookLayout_bookTitle))
+        setBookAuthor(typedArray.getString(R.styleable.BookLayout_bookAuthor))
+        setBookPublisher(typedArray.getString(R.styleable.BookLayout_bookPublisher))
+        setBookDate(typedArray.getString(R.styleable.BookLayout_bookDate))
+        setBookIcon(typedArray.getResourceId(R.styleable.BookLayout_buttonIcon, 0))
+        setBookGenre(typedArray.getString(R.styleable.BookLayout_bookGenre))
+        setBookPages(typedArray.getString(R.styleable.BookLayout_bookPages))
+        setBookDescription(typedArray.getString(R.styleable.BookLayout_bookDescription))
 
-        a.recycle()
+        button_add_to_wishlist.setOnClickListener(this)
 
-        // Set up a default TextPaint object
-        mTextPaint = TextPaint()
-        mTextPaint!!.flags = Paint.ANTI_ALIAS_FLAG
-        mTextPaint!!.textAlign = Paint.Align.LEFT
-
-        // Update TextPaint and text measurements from attributes
-        invalidateTextPaintAndMeasurements()
+        typedArray.recycle()
     }
 
-    private fun invalidateTextPaintAndMeasurements() {
-        mTextPaint!!.textSize = mExampleDimension
-        mTextPaint!!.color = mExampleColor
-        mTextWidth = mTextPaint!!.measureText(mExampleString)
-
-        val fontMetrics = mTextPaint!!.fontMetrics
-        mTextHeight = fontMetrics.bottom
+    private fun setImageOfBook(resId: Int) {
+        if (checkInts(resId)) {
+            book_image.setImageResource(resId)
+            invalidate()
+            requestLayout()
+        }
     }
 
-    override fun onDraw(canvas: Canvas) {
-        super.onDraw(canvas)
-
-        // TODO: consider storing these as member variables to reduce
-        // allocations per draw cycle.
-        val paddingLeft = paddingLeft
-        val paddingTop = paddingTop
-        val paddingRight = paddingRight
-        val paddingBottom = paddingBottom
-
-        val contentWidth = width - paddingLeft - paddingRight
-        val contentHeight = height - paddingTop - paddingBottom
-
-        // Draw the text.
-        canvas.drawText(mExampleString!!,
-                paddingLeft + (contentWidth - mTextWidth) / 2,
-                paddingTop + (contentHeight + mTextHeight) / 2,
-                mTextPaint!!)
-
-        // Draw the example drawable on top of the text.
-        if (exampleDrawable != null) {
-            exampleDrawable!!.setBounds(paddingLeft, paddingTop,
-                    paddingLeft + contentWidth, paddingTop + contentHeight)
-            exampleDrawable!!.draw(canvas)
+    private fun setBookTitle(title: String) {
+        if (checkStrings(title)) {
+            book_title.text = title
+            invalidate()
+            requestLayout()
         }
+
+    }
+
+    private fun setBookAuthor(author: String) {
+        if (checkStrings(author)) {
+            book_author.text = author
+            invalidate()
+            requestLayout()
+        }
+
+    }
+
+    private fun setBookPublisher(publisher: String) {
+        if (checkStrings(publisher)) {
+            book_publisher.text = publisher
+            invalidate()
+            requestLayout()
+        }
+
+    }
+
+    private fun setBookDate(date: String) {
+        if (checkStrings(date)) {
+            book_date.text = date
+            invalidate()
+            requestLayout()
+        }
+
+    }
+
+    private fun setBookIcon(resId: Int) {
+        if (checkInts(resId)) {
+            button_add_to_wishlist.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, resId, 0)
+            invalidate()
+            requestLayout()
+        }
+
+    }
+
+    private fun setBookGenre(genre: String) {
+        if (checkStrings(genre)) {
+            book_genre.text = genre
+            invalidate()
+            requestLayout()
+        }
+
+    }
+
+    private fun setBookPages(pages: String) {
+        if (checkStrings(pages)) {
+            book_pages.text = "${pages} páginas"
+            invalidate()
+            requestLayout()
+        }
+    }
+
+    private fun setBookDescription(description: String) {
+        if (checkStrings(description)) {
+            expandable_desc.text = description
+            invalidate()
+            requestLayout()
+        }
+    }
+
+    private fun checkStrings(sequence: String): Boolean {
+        return sequence.isNotEmpty()
+    }
+
+    private fun checkInts(resId: Int): Boolean {
+        return resId != null
     }
 }

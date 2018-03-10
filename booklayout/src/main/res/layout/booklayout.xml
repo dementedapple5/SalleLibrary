@@ -39,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/book_title" />
 
     <TextView
-        android:id="@+id/book_editorial"
+        android:id="@+id/book_publisher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -56,7 +56,7 @@
         android:layout_marginTop="8dp"
         android:text="Fecha de publicación"
         app:layout_constraintStart_toEndOf="@+id/book_image"
-        app:layout_constraintTop_toBottomOf="@+id/book_editorial" />
+        app:layout_constraintTop_toBottomOf="@+id/book_publisher" />
 
     <Button
         android:id="@+id/button_add_to_wishlist"
@@ -75,7 +75,7 @@
     <View
         android:id="@+id/first_divider"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="2dp"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
@@ -117,7 +117,7 @@
     <View
         android:id="@+id/second_divider"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="2dp"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"

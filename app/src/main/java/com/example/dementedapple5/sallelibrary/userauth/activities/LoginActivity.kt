@@ -39,6 +39,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, OnCompleteListe
         mAuth = FirebaseAuth.getInstance()
 
         signup_button.setOnClickListener(this)
+
+        if (mAuth.currentUser != null) {
+            updateUI()
+        }
     }
 
     override fun onClick(view: View?) {
@@ -58,10 +62,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, OnCompleteListe
 
     override fun onComplete(task: Task<AuthResult>) {
         if (task.isSuccessful) {
-            val intent = Intent(this, TabbedActivity::class.java)
-            startActivity(intent)
+            updateUI()
         } else {
-            Toast.makeText(this, "Ha pasado algo con el sign in yokse", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, R.string.error_sign_in, Toast.LENGTH_LONG).show()
         }
     }
 
@@ -75,7 +78,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, OnCompleteListe
             val account: GoogleSignInAccount = completedTask.getResult(ApiException::class.java)
             firebaseAuthWithGoogle(account)
         } catch (e: ApiException) {
-            Toast.makeText(this, "Algo ha ido mal xd", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, e.statusCode.toString(), Toast.LENGTH_LONG).show()
         }
     }
 
@@ -83,5 +86,11 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, OnCompleteListe
         val accountCredentials: AuthCredential = GoogleAuthProvider.getCredential(accountSigningIn.idToken, null)
 
         mAuth.signInWithCredential(accountCredentials).addOnCompleteListener(this)
+    }
+
+    private fun updateUI() {
+        val intent = Intent(this, TabbedActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

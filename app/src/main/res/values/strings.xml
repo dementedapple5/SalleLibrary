@@ -19,4 +19,6 @@
     <string name="auth_bu_text">Iniciar sesión</string>
     <string name="signup_google">Inicia con Google</string>
     <string name="title_activity_tabbed">TabbedActivity</string>
+
+    <string name="error_sign_in">Ha ocurrido un error en el inicio de sesión</string>
 </resources>

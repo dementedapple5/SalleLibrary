@@ -4,23 +4,24 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_salle_library"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_salle_library"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".userauth.activities.LoginActivity">
+        <activity android:name=".userauth.activities.LoginActivity"/>
+        <activity android:name=".mainmenu.MainMenuActivity" />
+        <activity
+            android:name=".mainmenu.TabbedActivity"
+            android:label="@string/title_activity_tabbed"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".splashscreen.SplashScreenActivity" android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".mainmenu.MainMenuActivity" />
-        <activity
-            android:name=".mainmenu.TabbedActivity"
-            android:label="@string/title_activity_tabbed"
-            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

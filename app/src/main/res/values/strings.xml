@@ -7,6 +7,10 @@
     <string name="tab_text_2">Mi Wishlist</string>
     <string name="action_log_out">Cerrar sesión</string>
     <string name="signup_google">Inicia con Google</string>
+    <string name="logout_confirmation">Estás seguro/a de que quieres cerrar sesión?</string>
+    <string name="logout_ok">OK</string>
+    <string name="logout_cancel">Cancelar</string>
+
     <string name="title_activity_tabbed">TabbedActivity</string>
 
     <string name="error_sign_in">Ha ocurrido un error en el inicio de sesión</string>

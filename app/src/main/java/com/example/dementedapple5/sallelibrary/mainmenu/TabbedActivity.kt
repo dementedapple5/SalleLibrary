@@ -25,6 +25,10 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_tabbed.*
 import kotlinx.android.synthetic.main.tabs.*
 import kotlinx.android.synthetic.main.toolbar.*
+import android.widget.Toast
+import android.content.DialogInterface
+import android.support.v7.app.AlertDialog
+
 
 class TabbedActivity : AppCompatActivity() {
 
@@ -53,14 +57,24 @@ class TabbedActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.actionlogout -> {
-                mAuth.signOut()
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-                finish()
+                confirmDialog()
                 return true
             }
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun confirmDialog() {
+        AlertDialog.Builder(this)
+                .setTitle(R.string.action_log_out)
+                .setMessage(R.string.logout_confirmation)
+                .setPositiveButton(R.string.logout_ok, DialogInterface.OnClickListener { _, _ ->
+                    mAuth.signOut()
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                })
+                .setNegativeButton(R.string.logout_cancel, null).show()
     }
 }

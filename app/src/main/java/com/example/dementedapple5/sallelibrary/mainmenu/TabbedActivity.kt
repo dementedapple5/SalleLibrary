@@ -23,8 +23,7 @@ import kotlinx.android.synthetic.main.activity_tabbed.*
 import kotlinx.android.synthetic.main.tabs.*
 import kotlinx.android.synthetic.main.toolbar.*
 
-class TabbedActivity : AppCompatActivity(), WishlistFragment.OnFragmentInteractionListener {
-    override fun onFragmentInteraction(uri: Uri) {}
+class TabbedActivity : AppCompatActivity() {
 
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
 

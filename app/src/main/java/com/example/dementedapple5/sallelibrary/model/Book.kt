@@ -1,6 +1,7 @@
 package com.example.dementedapple5.sallelibrary.model
 
 import java.util.*
+import kotlin.collections.ArrayList
 
 /**
  * Created by dementedapple5 on 22/02/2018.
@@ -17,10 +18,9 @@ class Book() {
 
 
 
-    constructor(title: String, price: Float, img: Int) : this() {
+    constructor(title: String, author: String) : this() {
         this.title = title
-        this.price = price
-        this.img = img
+        this.author = author
     }
 
     constructor(title: String, price: Float, img: Int, author: String, releaseDate: Date, rate: Int) : this() {
@@ -31,5 +31,10 @@ class Book() {
         this.releaseDate = releaseDate
         this.rate = rate
     }
+
+    override fun toString(): String {
+        return "Book(title='$title', author='$author')"
+    }
+
 
 }

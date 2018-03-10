@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dementedapple5.sallelibrary">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,12 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".mainmenu.MainMenuActivity" />
         <activity
             android:name=".mainmenu.TabbedActivity"
             android:label="@string/title_activity_tabbed"
             android:theme="@style/AppTheme" />
-        <activity android:name=".mainmenu.BookDetailsActivity"></activity>
+        <activity android:name=".mainmenu.BookDetailsActivity"/>
     </application>
 
 </manifest>

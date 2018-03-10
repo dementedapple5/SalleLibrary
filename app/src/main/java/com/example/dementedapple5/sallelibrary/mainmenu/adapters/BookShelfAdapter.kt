@@ -32,7 +32,6 @@ class BookShelfAdapter(val mShelfArray: ArrayList<BookShelf>): RecyclerView.Adap
         holder!!.mCardView.mTextView.text = mShelfArray[position].title
         holder.mCardView.mBookRecycle.adapter = BookAdapter(mShelfArray[position].books)
         holder.mCardView.mBookRecycle.setHasFixedSize(true)
-        holder.mCardView.mBookRecycle.setHasFixedSize(true)
         holder.mCardView.mBookRecycle.layoutManager = LinearLayoutManager(holder.mCardView.context, LinearLayoutManager.HORIZONTAL, false)
     }
 

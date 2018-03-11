@@ -3,18 +3,21 @@ package com.example.dementedapple5.sallelibrary.mainmenu.fragments
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 
 import com.example.dementedapple5.sallelibrary.R
 import com.example.dementedapple5.sallelibrary.mainmenu.adapters.BookShelfAdapter
 import com.example.dementedapple5.sallelibrary.mainmenu.adapters.FavBookAdapter
 import com.example.dementedapple5.sallelibrary.model.Book
 import com.example.dementedapple5.sallelibrary.model.BookShelf
+import com.example.dementedapple5.sallelibrary.model.SharedPreference
 import kotlinx.android.synthetic.main.fragment_main_page.*
 import kotlinx.android.synthetic.main.fragment_wishlist.*
 
@@ -27,35 +30,37 @@ class WishlistFragment : Fragment() {
         return inflater!!.inflate(R.layout.fragment_wishlist, container, false)
     }
 
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+
+        if (isVisibleToUser) {
+            val sharedPreference = SharedPreference()
+            val booksInWishlist: ArrayList<Book>? = sharedPreference.getBooksInWishlist(activity)
+
+            if (booksInWishlist == null) {
+                val noBooksMessage = Snackbar.make(activity.findViewById(R.id.gridlayout), "Aún no tienes ningún libro añadido a tu Wishlist", Snackbar.LENGTH_INDEFINITE)
+
+                noBooksMessage.setAction(R.string.snackbar_ignore, object: View.OnClickListener {
+                    override fun onClick(view: View?) {
+                        noBooksMessage.dismiss()
+                    }
+                })
+
+                noBooksMessage.show()
+            } else {
+                val mAdapter = FavBookAdapter(booksInWishlist)
+                wishlist_recycler.adapter = mAdapter
+            }
+        }
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-        val mArrayColor: ArrayList<Int> = ArrayList()
-
-        mArrayColor.add(R.color.material_blue_grey_800)
-        mArrayColor.add(R.color.material_deep_teal_200)
-        mArrayColor.add(R.color.material_grey_100)
-        mArrayColor.add(R.color.colorPrimary)
-        mArrayColor.add(R.color.colorAccent)
-        mArrayColor.add(R.color.colorPrimaryDark)
-
-        val mFavBookArray = ArrayList<Book>()
-
-//        mFavBookArray.add(Book("Harry Potter", 5.0f, mArrayColor[0]))
-//        mFavBookArray.add(Book("Lord of the Rings", 7.55f, mArrayColor[1]))
-//        mFavBookArray.add(Book("Game of Thrones", 6.99f, mArrayColor[2]))
-//        mFavBookArray.add(Book("Frankestain", 5.99f, mArrayColor[3]))
-//        mFavBookArray.add(Book("Avengers", 5.33f, mArrayColor[4]))
-//        mFavBookArray.add(Book("Superman", 8.44f, mArrayColor[5]))
 
         wishlist_recycler.setHasFixedSize(true)
 
         val mLayoutManager = GridLayoutManager(activity.applicationContext, 2, GridLayoutManager.VERTICAL, false)
         wishlist_recycler.layoutManager = mLayoutManager
-
-        val mAdapter = FavBookAdapter(mFavBookArray)
-        wishlist_recycler.adapter = mAdapter
-
     }
 
     override fun onAttach(context: Context?) {

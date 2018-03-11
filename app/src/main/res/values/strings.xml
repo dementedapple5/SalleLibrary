@@ -14,6 +14,7 @@
     <string name="logout_confirmation">Estás seguro/a de que quieres cerrar sesión?</string>
     <string name="logout_ok">OK</string>
     <string name="logout_cancel">Cancelar</string>
+    <string name="snackbar_ignore">Ignorar</string>
 
     <string name="title_activity_tabbed">TabbedActivity</string>
 

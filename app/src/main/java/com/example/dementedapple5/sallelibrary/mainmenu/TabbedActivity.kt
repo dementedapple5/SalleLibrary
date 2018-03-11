@@ -20,6 +20,8 @@ import kotlinx.android.synthetic.main.toolbar.*
 import android.content.DialogInterface
 import android.graphics.Color
 import android.support.transition.TransitionManager
+import android.support.v4.app.LoaderManager
+import android.support.v4.content.Loader
 import android.support.v4.view.MenuItemCompat
 import android.support.v4.view.MenuItemCompat.expandActionView
 import android.support.v7.app.AlertDialog
@@ -35,7 +37,18 @@ import android.util.Log
 import android.widget.ImageView
 
 
-class TabbedActivity : AppCompatActivity() {
+class TabbedActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<String> {
+    override fun onCreateLoader(id: Int, args: Bundle?): Loader<String> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onLoadFinished(loader: Loader<String>?, data: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onLoaderReset(loader: Loader<String>?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
     private lateinit var mAuth: FirebaseAuth

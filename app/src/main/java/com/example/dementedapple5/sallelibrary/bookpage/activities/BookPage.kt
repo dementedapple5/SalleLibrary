@@ -8,7 +8,6 @@ import kotlinx.android.synthetic.main.activity_book_page.*
 import android.support.design.widget.Snackbar
 import android.view.Menu
 import android.view.MenuItem
-import com.example.dementedapple5.sallelibrary.R
 import com.google.firebase.auth.FirebaseAuth
 
 

@@ -27,6 +27,7 @@ import android.view.View
 import android.view.ViewAnimationUtils
 import com.example.dementedapple5.sallelibrary.mainmenu.asyncTasks.SearchBook
 import com.example.dementedapple5.sallelibrary.model.Book
+import org.json.JSONException
 import org.json.JSONObject
 
 
@@ -163,23 +164,69 @@ class TabbedActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<String
             val bookJSON = booksArray.getJSONObject(i)
 
             var title = ""
-            var author = ""
+            var publisher = ""
+            var genre = ""
+            var numPages = 0
             var img = ""
+            var author = ""
+            var releaseDate = ""
+            var description = ""
 
             val volumeInfo = bookJSON.getJSONObject("volumeInfo")
 
             try {
-                title = volumeInfo.getString("title")
-                val authors = volumeInfo.getJSONArray("authors")
-                author = authors.getString(0)
-                val imageLinks = volumeInfo.getJSONObject("imageLinks")
-                img = imageLinks.getString("thumbnail")
+                // Get title
+                if (volumeInfo.has("title")){
+                    title = volumeInfo.getString("title")
+                }
+
+                // Get authors
+                if (volumeInfo.has("authors")){
+                    val authors = volumeInfo.getJSONArray("authors")
+                    author = authors.getString(0)
+                }
+
+                // Get imageURL
+                if (volumeInfo.has("imageLinks")) {
+                    val imageLinks = volumeInfo.getJSONObject("imageLinks")
+                    img = imageLinks.getString("thumbnail")
+                }
+
+                // Get numPages
+                if (volumeInfo.has("pageCount")){
+                    numPages = volumeInfo.getInt("pageCount")
+                }
+
+                // Get year of release
+                if (volumeInfo.has("publishedDate")) {
+                    releaseDate = volumeInfo.getString("publishedDate")
+                }
+
+                // Get publisher
+                if (volumeInfo.has("publisher")) {
+                    publisher = volumeInfo.getString("publisher")
+                }
+
+                // Get genre
+                if (volumeInfo.has("categories")) {
+                    val genres = volumeInfo.getJSONArray("categories")
+                    genre = genres.getString(0)
+                }
+
+                // Get Description
+                if (volumeInfo.has("description")){
+                    description = volumeInfo.getString("description")
+                }
+
             } catch (e: Exception) {
                 e.printStackTrace()
+            }catch (e1: JSONException) {
+                e1.printStackTrace()
             }
 
-//            book = Book(title, author, img)
-//            mBookArray.add(book)
+            book = Book(title, author, releaseDate, publisher, genre, numPages, description, img)
+
+            mBookArray.add(book)
 
         }
     }

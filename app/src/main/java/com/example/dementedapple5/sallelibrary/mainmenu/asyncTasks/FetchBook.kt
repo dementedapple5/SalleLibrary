@@ -1,9 +1,15 @@
 package com.example.dementedapple5.sallelibrary.mainmenu.asyncTasks
 
+
+import android.content.Intent
 import android.os.AsyncTask
 import android.support.v4.app.FragmentActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
+import android.view.MotionEvent
+import com.example.dementedapple5.sallelibrary.bookpage.activities.BookPage
+import android.view.View
 import com.example.dementedapple5.sallelibrary.mainmenu.adapters.BookShelfAdapter
 import com.example.dementedapple5.sallelibrary.mainmenu.utils.NetworkUtils
 import com.example.dementedapple5.sallelibrary.model.Book

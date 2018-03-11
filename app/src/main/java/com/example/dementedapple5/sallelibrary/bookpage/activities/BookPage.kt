@@ -1,13 +1,19 @@
 package com.example.dementedapple5.sallelibrary.bookpage.activities
 
+import android.content.DialogInterface
+import android.content.Intent
+import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.example.booklayout.BookLayout
 import com.example.dementedapple5.sallelibrary.R
 import com.example.dementedapple5.sallelibrary.mainmenu.asyncTasks.SetBookImages
+import com.example.dementedapple5.sallelibrary.model.Book
+import com.example.dementedapple5.sallelibrary.userauth.activities.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_book_page.*
 
@@ -56,14 +62,14 @@ class BookPage : AppCompatActivity(), BookLayout.OnAddedToWishlistListener {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.settings_menu, menu)
+        menuInflater.inflate(R.menu.only_settings_menu, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
-            R.id.action_logout -> {
-                mAuth.signOut()
+            android.R.id.home -> {
+                finish()
                 return true
             }
         }

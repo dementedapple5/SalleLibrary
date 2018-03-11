@@ -227,9 +227,6 @@ class TabbedActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<String
             book = Book(title, author, releaseDate, publisher, genre, numPages, description, img)
 
             mBookArray.add(book)
-//            book = Book(title, author, img)
-//            mBookArray.add(book)
-
         }
     }
 

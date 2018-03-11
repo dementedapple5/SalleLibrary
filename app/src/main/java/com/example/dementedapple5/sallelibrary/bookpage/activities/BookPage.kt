@@ -8,16 +8,24 @@ import android.view.MenuItem
 import com.example.booklayout.BookLayout
 import com.example.dementedapple5.sallelibrary.R
 import com.example.dementedapple5.sallelibrary.mainmenu.asyncTasks.SetBookImages
+import com.example.dementedapple5.sallelibrary.model.Book
+import com.example.dementedapple5.sallelibrary.model.SharedPreference
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_book_page.*
 
 
 class BookPage : AppCompatActivity(), BookLayout.OnAddedToWishlistListener {
     private lateinit var mAuth: FirebaseAuth
+    var sharedPreference = SharedPreference()
+    var booksInWishlist: ArrayList<Book> = ArrayList<Book>()
+    lateinit var bookObject: Book
 
     override fun onAddedToWishlist(source: BookLayout, textToDisplay: String) {
         book.setWishlistButtonIcon(R.drawable.ic_done)
         book.setButtonText("En tu Wishlist")
+
+        sharedPreference.addToWishlist(this, bookObject)
+
         Snackbar.make(findViewById(R.id.coordinator), "${textToDisplay} ha sido añadido a tu Wishlist", Snackbar.LENGTH_LONG).show()
     }
 
@@ -25,7 +33,6 @@ class BookPage : AppCompatActivity(), BookLayout.OnAddedToWishlistListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_book_page)
         setSupportActionBar(book_toolbar)
-
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true);
         supportActionBar?.setDisplayShowHomeEnabled(true);
@@ -42,6 +49,8 @@ class BookPage : AppCompatActivity(), BookLayout.OnAddedToWishlistListener {
         val description: String = intent.getBundleExtra("bookData").getString("description")
         val genre: String = intent.getBundleExtra("bookData").getString("genre")
         val publisher: String = intent.getBundleExtra("bookData").getString("publisher")
+
+        bookObject = Book(title, author, releaseDate, publisher, genre, numPages.toInt(), description, img)
 
         book_toolbar.title = title
         book.setBookGenre(genre)

@@ -32,8 +32,11 @@ class SharedPreference() {
     fun addToWishlist(context: Context, book: Book) {
         var booksInWishlist: ArrayList<Book>? = getBooksInWishlist(context)
 
-        if (booksInWishlist!!.isEmpty()) {
+        if (booksInWishlist == null) {
             booksInWishlist = ArrayList<Book>()
+            booksInWishlist.add(book)
+            persistentWishlist(context, booksInWishlist)
+        } else {
             booksInWishlist.add(book)
             persistentWishlist(context, booksInWishlist)
         }

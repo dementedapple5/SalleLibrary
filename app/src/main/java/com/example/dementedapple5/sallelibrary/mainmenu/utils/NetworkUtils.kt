@@ -17,6 +17,7 @@ class NetworkUtils {
         val QUERY_PARAM = "q"
         val MAX_RESULTS = "maxResults"
         val PRINT_TYPE = "printType"
+        val ORDER_BY = "orderBy"
 
         fun getBookInfo(queryArray: ArrayList<String>): ArrayList<String>? {
             var urlConnection: HttpURLConnection
@@ -30,6 +31,7 @@ class NetworkUtils {
                             .appendQueryParameter(QUERY_PARAM, "+subject:$queryString")
                             .appendQueryParameter(MAX_RESULTS, "20")
                             .appendQueryParameter(PRINT_TYPE, "books")
+                            .appendQueryParameter(ORDER_BY, "newest")
                             .build()
 
                     val requestUrl = URL(requestUri.toString())

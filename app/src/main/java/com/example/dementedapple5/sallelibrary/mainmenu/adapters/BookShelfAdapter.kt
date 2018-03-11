@@ -35,6 +35,7 @@ class BookShelfAdapter(val mShelfArray: ArrayList<BookShelf>): RecyclerView.Adap
         holder.mCardView.mBookRecycle.setHasFixedSize(true)
         holder.mCardView.mBookRecycle.setItemViewCacheSize(20)
         holder.mCardView.mBookRecycle.isDrawingCacheEnabled = true
+        holder.mCardView.mBookRecycle.drawingCacheQuality = View.DRAWING_CACHE_QUALITY_HIGH
         holder.mCardView.mBookRecycle.layoutManager = LinearLayoutManager(holder.mCardView.context, LinearLayoutManager.HORIZONTAL, false)
 
     }

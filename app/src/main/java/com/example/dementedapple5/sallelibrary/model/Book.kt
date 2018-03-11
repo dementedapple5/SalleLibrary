@@ -1,6 +1,8 @@
 package com.example.dementedapple5.sallelibrary.model
 
 import android.graphics.Bitmap
+import android.os.Parcel
+import android.os.Parcelable
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -9,6 +11,7 @@ import kotlin.collections.ArrayList
  */
 
 class Book() {
+
 
     var title: String = ""
     var publisher: String = ""
@@ -19,12 +22,6 @@ class Book() {
     var releaseDate: String = ""
     var description: String = ""
 
-
-    constructor(title: String, author: String, img: String) : this() {
-        this.title = title
-        this.author = author
-        this.img = img
-    }
 
     constructor(title: String, author: String, releaseDate: String, publisher: String, genre: String, numPages: Int, description: String, img: String) : this() {
         this.title = title
@@ -40,6 +37,7 @@ class Book() {
     override fun toString(): String {
         return "Book(title='$title', author='$author')"
     }
+
 
 
 }

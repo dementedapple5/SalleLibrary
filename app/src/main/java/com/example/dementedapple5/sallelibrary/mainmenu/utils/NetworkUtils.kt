@@ -3,6 +3,8 @@ package com.example.dementedapple5.sallelibrary.mainmenu.utils
 import android.net.Uri
 import android.util.Log
 import java.io.BufferedReader
+import java.io.IOException
+import java.io.InputStream
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
@@ -75,7 +77,64 @@ class NetworkUtils {
             return categoriesArray
         }
 
+        fun searchSingleBook(queryString: String): String? {
+            var urlConnection: HttpURLConnection? = null
+            var reader: BufferedReader? = null
+            var bookJSONString = ""
+
+            try {
+                val builtUri: Uri = Uri.parse(BASE_URL).buildUpon()
+                        .appendQueryParameter(QUERY_PARAM, queryString)
+                        .appendQueryParameter(MAX_RESULTS, "10")
+                        .appendQueryParameter(PRINT_TYPE, "books")
+                        .build()
+
+                val requestUrl = URL(builtUri.toString())
+
+                urlConnection = requestUrl.openConnection() as HttpURLConnection
+                urlConnection.requestMethod = "GET"
+                urlConnection.connect()
+
+                val inputStream: InputStream? = urlConnection.inputStream
+                val buffer = StringBuffer()
+
+                if (inputStream == null) {
+                    return  null
+                }
+
+                reader = BufferedReader(InputStreamReader(inputStream))
+
+                val jsonArr = reader.readLines()
+
+                for (elem in jsonArr) {
+                    buffer.append("$elem\n")
+                }
+
+                if (buffer.isEmpty()) {
+                    return null
+                }
+
+                bookJSONString = buffer.toString()
+            } catch (ex: Exception) {
+                ex.printStackTrace()
+                return null
+            } finally {
+                if (urlConnection != null) {
+                    urlConnection.disconnect()
+                }
+
+                if (reader != null) {
+                    try {
+                        reader.close()
+                    } catch (e: IOException) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+
+            Log.d("HOLA", bookJSONString)
+            return bookJSONString
+        }
+
     }
-
-
 }

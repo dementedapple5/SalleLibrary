@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">SalleLibrary</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
@@ -12,6 +10,8 @@
     <string name="tab_text_2">Mi Wishlist</string>
     <string name="action_search">action_search</string>
     <string name="action_log_out">Cerrar sesión</string>
+    <string name="action_log_out">Cerrar sesión</string>
+    <string name="action_search">Buscar</string>
     <string name="signup_google">Inicia con Google</string>
     <string name="logout_confirmation">Estás seguro/a de que quieres cerrar sesión?</string>
     <string name="logout_ok">OK</string>

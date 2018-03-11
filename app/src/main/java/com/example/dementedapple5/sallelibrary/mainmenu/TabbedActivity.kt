@@ -18,30 +18,23 @@ import kotlinx.android.synthetic.main.activity_tabbed.*
 import kotlinx.android.synthetic.main.tabs.*
 import kotlinx.android.synthetic.main.toolbar.*
 import android.content.DialogInterface
-import android.graphics.Color
-import android.support.transition.TransitionManager
-import android.support.v4.view.MenuItemCompat
-import android.support.v4.view.MenuItemCompat.expandActionView
+import android.support.v4.app.LoaderManager
+import android.support.v4.content.Loader
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.SearchView
+import android.util.Log
 import android.view.View
 import android.view.ViewAnimationUtils
-import java.lang.reflect.AccessibleObject.setAccessible
-import android.widget.TextView
-import android.widget.AutoCompleteTextView
-import android.widget.EditText
-import android.support.v4.view.MenuItemCompat.getActionView
-import android.util.Log
-import android.widget.ImageView
+import com.example.dementedapple5.sallelibrary.mainmenu.asyncTasks.SearchBook
+import com.example.dementedapple5.sallelibrary.model.Book
+import org.json.JSONObject
 
 
-class TabbedActivity : AppCompatActivity() {
-
+class TabbedActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<String> {
+    private var mBookArray: ArrayList<Book> = ArrayList<Book>()
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mSearchView: SearchView
-    private lateinit var search_menu: Menu
-    private lateinit var search_item: MenuItem
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +48,10 @@ class TabbedActivity : AppCompatActivity() {
 
         container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
         tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(container))
+
+        if(supportLoaderManager.getLoader<Any>(0) != null){
+            supportLoaderManager.initLoader(0,null,this);
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -63,6 +60,20 @@ class TabbedActivity : AppCompatActivity() {
         val searchItem: MenuItem? = menu?.findItem(R.id.action_search)
         mSearchView = searchItem?.actionView as SearchView
         mSearchView.queryHint = "Busca un título"
+
+        mSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                val queryBundle = Bundle()
+                queryBundle.putString("queryString", query)
+                supportLoaderManager.restartLoader(0, queryBundle, this@TabbedActivity)
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
+            }
+
+        })
 
         return true
     }
@@ -120,7 +131,7 @@ class TabbedActivity : AppCompatActivity() {
 
         anim.duration = 220L
 
-        anim.addListener(object: AnimatorListenerAdapter() {
+        anim.addListener(object : AnimatorListenerAdapter() {
             override fun onAnimationEnd(animation: Animator?) {
                 if (!isShow) {
                     super.onAnimationEnd(animation)
@@ -135,4 +146,44 @@ class TabbedActivity : AppCompatActivity() {
 
         anim.start()
     }
+
+    override fun onCreateLoader(id: Int, args: Bundle?): Loader<String> {
+        return SearchBook(this, args!!.getString("queryString"))
+    }
+
+    override fun onLoadFinished(loader: Loader<String>?, data: String?) {
+        mBookArray.clear()
+        var book: Book
+
+        val jsonObject = JSONObject(data)
+        val booksArray = jsonObject.getJSONArray("items")
+
+        for (i in 0 until booksArray.length()) {
+
+            val bookJSON = booksArray.getJSONObject(i)
+
+            var title = ""
+            var author = ""
+            var img = ""
+
+            val volumeInfo = bookJSON.getJSONObject("volumeInfo")
+
+            try {
+                title = volumeInfo.getString("title")
+                val authors = volumeInfo.getJSONArray("authors")
+                author = authors.getString(0)
+                val imageLinks = volumeInfo.getJSONObject("imageLinks")
+                img = imageLinks.getString("thumbnail")
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+
+            book = Book(title, author, img)
+            mBookArray.add(book)
+
+        }
+    }
+
+    override fun onLoaderReset(loader: Loader<String>?) {}
+
 }

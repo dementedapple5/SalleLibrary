@@ -14,10 +14,11 @@ class SetBookImages(val bookImg: ImageView) : AsyncTask<String, Void, Bitmap?>()
 
     override fun doInBackground(vararg p0: String?): Bitmap? {
         val urldisplay = p0[0]
+
         var mIcon11: Bitmap? = null
         try {
-            val `in` = java.net.URL(urldisplay).openStream()
-            mIcon11 = BitmapFactory.decodeStream(`in`)
+            val inputStream = java.net.URL(urldisplay).openStream()
+            mIcon11 = BitmapFactory.decodeStream(inputStream)
         } catch (e: Exception) {
             Log.e("Error", e.message)
             e.printStackTrace()

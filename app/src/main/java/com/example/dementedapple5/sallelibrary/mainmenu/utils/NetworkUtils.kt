@@ -65,7 +65,6 @@ class NetworkUtils {
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
-                Log.d("BOOKJSON:", bookJSONString)
 
                 categoriesArray.add(bookJSONString)
             }

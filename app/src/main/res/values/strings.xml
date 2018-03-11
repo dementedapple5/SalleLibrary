@@ -5,7 +5,6 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="tab_text_1">Librería</string>
     <string name="tab_text_2">Mi Wishlist</string>
-    <string name="action_log_out">Cerrar sesión</string>
     <string name="action_search">action_search</string>
     <string name="action_log_out">Cerrar sesión</string>
     <string name="signup_google">Inicia con Google</string>

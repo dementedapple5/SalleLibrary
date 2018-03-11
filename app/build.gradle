@@ -40,6 +40,12 @@ dependencies {
     compile 'com.ms-square:expandableTextView:0.1.4'
     compile 'com.android.support:transition:26.1.0'
     implementation project(':booklayout')
+    implementation 'com.google.android.gms:play-services-auth:11.8.0'
+    implementation 'com.google.firebase:firebase-core:11.8.0'
+    implementation 'com.google.firebase:firebase-auth:11.8.0'
+    implementation 'com.shobhitpuri.custombuttons:google-signin:1.0.0'
+    implementation 'com.beust:klaxon:2.1.10'
+    compile project(path: ':booklayout')
 }
 
 apply plugin: 'com.google.gms.google-services'

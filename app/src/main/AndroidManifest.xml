@@ -7,12 +7,20 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo_salle_library"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/logo_salle_library_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".userauth.activities.LoginActivity">
+        <activity android:name=".userauth.activities.LoginActivity" />
+        <activity
+            android:name=".mainmenu.TabbedActivity"
+            android:label="@string/title_activity_tabbed"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".splashscreen.activities.SplashScreenActivity"
+            android:theme="@style/SplashTheme">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,6 +32,8 @@
             android:label="@string/title_activity_tabbed"
             android:theme="@style/AppTheme" />
         <activity android:name=".mainmenu.BookDetailsActivity"/>
+        <activity android:name=".bookpage.activities.BookPage">
+        </activity>
     </application>
 
 </manifest>

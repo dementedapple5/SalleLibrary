@@ -3,11 +3,11 @@ package com.example.dementedapple5.sallelibrary.bookpage.activities
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.booklayout.BookLayout
+import com.example.dementedapple5.sallelibrary.R
 import kotlinx.android.synthetic.main.activity_book_page.*
 import android.support.design.widget.Snackbar
 import android.view.Menu
 import android.view.MenuItem
-import com.example.dementedapple5.sallelibrary.R
 import com.google.firebase.auth.FirebaseAuth
 
 
@@ -41,7 +41,7 @@ class BookPage : AppCompatActivity(), BookLayout.OnAddedToWishlistListener {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
-            R.id.actionlogout -> {
+            R.id.action_logout -> {
                 mAuth.signOut()
                 return true
             }

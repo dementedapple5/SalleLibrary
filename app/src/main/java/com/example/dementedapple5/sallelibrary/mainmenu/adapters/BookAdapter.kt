@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.dementedapple5.sallelibrary.R
+import com.example.dementedapple5.sallelibrary.mainmenu.asyncTasks.SetBookImages
 import com.example.dementedapple5.sallelibrary.model.Book
 import kotlinx.android.synthetic.main.book_item.view.*
 
@@ -31,8 +32,8 @@ class BookAdapter(val mBooks: ArrayList<Book>): RecyclerView.Adapter<BookAdapter
 
     override fun onBindViewHolder(holder: MyBookViewHolder, position: Int) {
         holder.mConstraint.mBookTitle.text = mBooks[position].title
-        holder.mConstraint.mBookPrice.text = "${mBooks[position].price.toString()}€"
-        holder.mConstraint.mBookImg.setImageResource(mBooks[position].img)
+        holder.mConstraint.mBookPrice.text = mBooks[position].author
+        SetBookImages(holder.mConstraint.mBookImg).execute(mBooks[position].img)
     }
 
 }

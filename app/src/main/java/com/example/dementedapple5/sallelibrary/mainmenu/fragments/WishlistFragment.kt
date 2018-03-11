@@ -41,12 +41,12 @@ class WishlistFragment : Fragment() {
 
         val mFavBookArray = ArrayList<Book>()
 
-        mFavBookArray.add(Book("Harry Potter", 5.0f, mArrayColor[0]))
-        mFavBookArray.add(Book("Lord of the Rings", 7.55f, mArrayColor[1]))
-        mFavBookArray.add(Book("Game of Thrones", 6.99f, mArrayColor[2]))
-        mFavBookArray.add(Book("Frankestain", 5.99f, mArrayColor[3]))
-        mFavBookArray.add(Book("Avengers", 5.33f, mArrayColor[4]))
-        mFavBookArray.add(Book("Superman", 8.44f, mArrayColor[5]))
+//        mFavBookArray.add(Book("Harry Potter", 5.0f, mArrayColor[0]))
+//        mFavBookArray.add(Book("Lord of the Rings", 7.55f, mArrayColor[1]))
+//        mFavBookArray.add(Book("Game of Thrones", 6.99f, mArrayColor[2]))
+//        mFavBookArray.add(Book("Frankestain", 5.99f, mArrayColor[3]))
+//        mFavBookArray.add(Book("Avengers", 5.33f, mArrayColor[4]))
+//        mFavBookArray.add(Book("Superman", 8.44f, mArrayColor[5]))
 
         wishlist_recycler.setHasFixedSize(true)
 

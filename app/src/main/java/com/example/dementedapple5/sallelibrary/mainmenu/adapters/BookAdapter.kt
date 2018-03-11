@@ -1,11 +1,14 @@
 package com.example.dementedapple5.sallelibrary.mainmenu.adapters
 
+import android.content.Intent
+import android.os.Bundle
 import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.dementedapple5.sallelibrary.R
+import com.example.dementedapple5.sallelibrary.bookpage.activities.BookPage
 import com.example.dementedapple5.sallelibrary.mainmenu.asyncTasks.SetBookImages
 import com.example.dementedapple5.sallelibrary.model.Book
 import kotlinx.android.synthetic.main.book_item.view.*
@@ -34,6 +37,24 @@ class BookAdapter(val mBooks: ArrayList<Book>): RecyclerView.Adapter<BookAdapter
         holder.mConstraint.mBookTitle.text = mBooks[position].title
         holder.mConstraint.mBookPrice.text = mBooks[position].author
         SetBookImages(holder.mConstraint.mBookImg).execute(mBooks[position].img)
+
+        holder.mConstraint.mBookImg.setOnClickListener({
+            val intent = Intent(holder.mConstraint.context, BookPage::class.java)
+            val bundle = Bundle()
+
+            bundle.putString("author", mBooks[position].author)
+            bundle.putString("title", mBooks[position].title)
+            bundle.putString("img", mBooks[position].img)
+            bundle.putString("description", mBooks[position].description)
+            bundle.putString("numPages", mBooks[position].numPages.toString())
+            bundle.putString("publisher", mBooks[position].publisher)
+            bundle.putString("releaseDate", mBooks[position].releaseDate)
+            bundle.putString("genre", mBooks[position].genre)
+
+
+            intent.putExtra("bookData", bundle)
+            holder.mConstraint.context.startActivity(intent)
+        })
     }
 
 }

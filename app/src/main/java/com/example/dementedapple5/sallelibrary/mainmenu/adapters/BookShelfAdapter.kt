@@ -1,15 +1,12 @@
 package com.example.dementedapple5.sallelibrary.mainmenu.adapters
 
-import android.content.Intent
 import android.support.v7.widget.CardView
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import com.example.dementedapple5.sallelibrary.R
-import com.example.dementedapple5.sallelibrary.bookpage.activities.BookPage
 import com.example.dementedapple5.sallelibrary.model.BookShelf
 import kotlinx.android.synthetic.main.book_shelf_item.view.*
 
@@ -38,6 +35,7 @@ class BookShelfAdapter(val mShelfArray: ArrayList<BookShelf>): RecyclerView.Adap
         holder.mCardView.mBookRecycle.setHasFixedSize(true)
         holder.mCardView.mBookRecycle.setItemViewCacheSize(20)
         holder.mCardView.mBookRecycle.isDrawingCacheEnabled = true
+        holder.mCardView.mBookRecycle.drawingCacheQuality = View.DRAWING_CACHE_QUALITY_HIGH
         holder.mCardView.mBookRecycle.layoutManager = LinearLayoutManager(holder.mCardView.context, LinearLayoutManager.HORIZONTAL, false)
 
     }

@@ -12,6 +12,7 @@ import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.ImageView
 import kotlinx.android.synthetic.main.booklayout.view.*
 
 class BookLayout : ConstraintLayout, View.OnClickListener {
@@ -68,12 +69,16 @@ class BookLayout : ConstraintLayout, View.OnClickListener {
         typedArray.recycle()
     }
 
-    private fun setImageOfBook(resId: Int) {
+    fun setImageOfBook(resId: Int) {
         if (checkInts(resId)) {
             book_image.setImageResource(resId)
             invalidate()
             requestLayout()
         }
+    }
+
+    fun getImageOfBook(): ImageView {
+        return book_image
     }
 
     fun setBookTitle(title: String) {

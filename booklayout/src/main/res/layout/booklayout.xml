@@ -10,7 +10,7 @@
         android:id="@+id/book_image"
         android:layout_width="110dp"
         android:layout_height="160dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_red_dark"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,11 +20,16 @@
         android:id="@+id/book_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Título del libro"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:maxLines="2"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/book_image"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,6 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="Autor"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/book_image"
@@ -60,17 +66,21 @@
 
     <Button
         android:id="@+id/button_add_to_wishlist"
-        android:layout_width="220dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Añadir a mi Wishlist"
         android:backgroundTint="#1565c0"
         android:drawableEnd="@drawable/ic_action_heart"
+        android:text="Añadir a mi Wishlist"
         android:textColor="@color/cardview_light_background"
         app:layout_constraintBottom_toTopOf="@+id/first_divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/book_image"
-        app:layout_constraintTop_toBottomOf="@+id/book_date" />
+        app:layout_constraintTop_toBottomOf="@+id/book_date"
+        app:layout_constraintVertical_bias="0.384" />
 
     <View
         android:id="@+id/first_divider"
@@ -92,6 +102,7 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/circlebackground"
         android:elevation="6dp"
+        android:padding="8dp"
         android:gravity="center"
         android:text="Género"
         android:textAllCaps="true"
@@ -108,6 +119,7 @@
         android:background="@drawable/circlebackground"
         android:elevation="6dp"
         android:gravity="center"
+        android:padding="8dp"
         android:text="200 Páginas"
         android:textAllCaps="true"
         android:textColor="@color/cardview_light_background"
@@ -133,7 +145,8 @@
         android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        android:textStyle="bold"
+        android:textColor="#000000"
+        android:scrollbars="vertical"
         android:text="risus, eget congue nulla ultrices a. Pellentesque vel arcu eget augue placerat rutrum. Donec mi nunc, sagittis a metus id, laoreet sodales enim. Quisque at interdum est. Nulla facilisi. Quisque bibendum, nunc quis vestibulum consequat, lacus ligula bibendum metus, vitae tincidunt nunc dui et quam. Sed dolor nibh, ultrices at urna sit amet, cursus rhoncus nisi. Proin justo mauris, venenatis vel ex at, dignissim scelerisque diam. Pellentesque imperdiet accumsan pulvinar. Suspendisse interdum imperdiet urna, ac sagittis velit placerat et. Maecenas euismod magna ullamcorper lacus egestas, sed scelerisque lacus mollis. Maecenas posuere malesuada lacinia. Proin viverra in ante eu aliquet. Sed luctus porta viverra.
 
 Sed eu elementum elit. Vestibulum sed condimentum mauris. Morbi tempus nibh ante, sed suscipit ante pellentesque vitae. Praesent at quam ac odio condimentum sollicitudin. Nullam congue vulputate odio ut cursus. Etiam euismod nunc nec magna vulputate malesuada. Vestibulum vestibulum quam in finibus viverra. Curabitur vulputate elit diam, sed interdum tellus interdum vel. Mauris cursus, dolor eu tempus malesuada, nisl diam feugiat diam, sed vestibulum leo odio fermentum ante.

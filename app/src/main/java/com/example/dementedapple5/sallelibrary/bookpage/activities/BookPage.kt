@@ -1,5 +1,6 @@
 package com.example.dementedapple5.sallelibrary.bookpage.activities
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.booklayout.BookLayout
@@ -8,6 +9,8 @@ import kotlinx.android.synthetic.main.activity_book_page.*
 import android.support.design.widget.Snackbar
 import android.view.Menu
 import android.view.MenuItem
+import com.example.dementedapple5.sallelibrary.mainmenu.asyncTasks.SetBookImages
+import com.example.dementedapple5.sallelibrary.model.Book
 import com.google.firebase.auth.FirebaseAuth
 
 
@@ -32,6 +35,26 @@ class BookPage : AppCompatActivity(), BookLayout.OnAddedToWishlistListener {
         mAuth = FirebaseAuth.getInstance()
 
         book.setOnAddedToWishlistListener(this)
+
+        val author: String = intent.getBundleExtra("bookData").getString("author")
+        val title: String = intent.getBundleExtra("bookData").getString("title")
+        val img: String = intent.getBundleExtra("bookData").getString("img")
+        val releaseDate: String = intent.getBundleExtra("bookData").getString("releaseDate")
+        val numPages: String = intent.getBundleExtra("bookData").getString("numPages")
+        val description: String = intent.getBundleExtra("bookData").getString("description")
+        val genre: String = intent.getBundleExtra("bookData").getString("genre")
+        val publisher: String = intent.getBundleExtra("bookData").getString("publisher")
+
+        book.setBookGenre(genre)
+        book.setBookAuthor(author)
+        book.setBookDate(releaseDate)
+        book.setBookPages(numPages)
+        book.setBookDescription(description)
+        book.setBookTitle(title)
+        book.setBookPublisher(publisher)
+
+        SetBookImages(book.getImageOfBook()).execute(img)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

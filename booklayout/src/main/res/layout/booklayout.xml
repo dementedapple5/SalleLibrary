@@ -1,162 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/book_image"
-        android:layout_width="110dp"
-        android:layout_height="160dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:background="@android:color/holo_red_dark"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/book_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Título del libro"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        android:maxLines="2"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/book_image"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/book_author"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Autor"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/book_image"
-        app:layout_constraintTop_toBottomOf="@+id/book_title" />
-
-    <TextView
-        android:id="@+id/book_publisher"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Editorial"
-        app:layout_constraintStart_toEndOf="@+id/book_image"
-        app:layout_constraintTop_toBottomOf="@+id/book_author" />
-
-    <TextView
-        android:id="@+id/book_date"
-        android:layout_width="wrap_content"
-        android:layout_height="23dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Fecha de publicación"
-        app:layout_constraintStart_toEndOf="@+id/book_image"
-        app:layout_constraintTop_toBottomOf="@+id/book_publisher" />
-
-    <Button
-        android:id="@+id/button_add_to_wishlist"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:backgroundTint="#1565c0"
-        android:drawableEnd="@drawable/ic_action_heart"
-        android:text="Añadir a mi Wishlist"
-        android:textColor="@color/cardview_light_background"
-        app:layout_constraintBottom_toTopOf="@+id/first_divider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/book_image"
-        app:layout_constraintTop_toBottomOf="@+id/book_date"
-        app:layout_constraintVertical_bias="0.384" />
-
-    <View
-        android:id="@+id/first_divider"
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/book_image" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/book_genre"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/circlebackground"
-        android:elevation="6dp"
-        android:padding="8dp"
-        android:gravity="center"
-        android:text="Género"
-        android:textAllCaps="true"
-        android:textColor="@color/cardview_light_background"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/first_divider" />
+        <ImageView
+            android:id="@+id/book_image"
+            android:layout_width="110dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/book_pages"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/circlebackground"
-        android:elevation="6dp"
-        android:gravity="center"
-        android:padding="8dp"
-        android:text="200 Páginas"
-        android:textAllCaps="true"
-        android:textColor="@color/cardview_light_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/first_divider" />
+        <TextView
+            android:id="@+id/book_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:maxLines="2"
+            android:text="Título del libro"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.068"
+            app:layout_constraintStart_toEndOf="@+id/book_image"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <View
-        android:id="@+id/second_divider"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/book_genre" />
+        <TextView
+            android:id="@+id/book_author"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="56dp"
+            android:text="Autor"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/book_image"
+            app:layout_constraintTop_toBottomOf="@+id/book_title" />
 
-    <TextView
-        android:id="@+id/expandable_desc"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:textColor="#000000"
-        android:scrollbars="vertical"
-        android:text="risus, eget congue nulla ultrices a. Pellentesque vel arcu eget augue placerat rutrum. Donec mi nunc, sagittis a metus id, laoreet sodales enim. Quisque at interdum est. Nulla facilisi. Quisque bibendum, nunc quis vestibulum consequat, lacus ligula bibendum metus, vitae tincidunt nunc dui et quam. Sed dolor nibh, ultrices at urna sit amet, cursus rhoncus nisi. Proin justo mauris, venenatis vel ex at, dignissim scelerisque diam. Pellentesque imperdiet accumsan pulvinar. Suspendisse interdum imperdiet urna, ac sagittis velit placerat et. Maecenas euismod magna ullamcorper lacus egestas, sed scelerisque lacus mollis. Maecenas posuere malesuada lacinia. Proin viverra in ante eu aliquet. Sed luctus porta viverra.
+        <TextView
+            android:id="@+id/book_publisher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Editorial"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/book_image"
+            app:layout_constraintTop_toBottomOf="@+id/book_author" />
+
+        <TextView
+            android:id="@+id/book_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Fecha de publicación"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/book_image"
+            app:layout_constraintTop_toBottomOf="@+id/book_publisher" />
+
+        <Button
+            android:id="@+id/button_add_to_wishlist"
+            android:layout_width="211dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#1565c0"
+            android:text="Añadir a mi Wishlist"
+            android:textColor="@color/cardview_light_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/book_image" />
+
+        <View
+            android:id="@+id/first_divider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_add_to_wishlist" />
+
+        <TextView
+            android:id="@+id/book_genre"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/circlebackground"
+            android:elevation="6dp"
+            android:padding="8dp"
+            android:gravity="center"
+            android:text="Género"
+            android:textSize="12sp"
+            android:textAllCaps="true"
+            android:textColor="@color/cardview_light_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/first_divider" />
+
+        <TextView
+            android:id="@+id/book_pages"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="80dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/circlebackground"
+            android:elevation="6dp"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="200 Páginas"
+            android:textSize="12sp"
+            android:textAllCaps="true"
+            android:textColor="@color/cardview_light_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/first_divider" />
+
+        <View
+            android:id="@+id/second_divider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/book_genre" />
+
+        <TextView
+            android:id="@+id/expandable_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:scrollIndicators="right"
+            android:scrollbars="vertical"
+            android:text="risus, eget congue nulla ultrices a. Pellentesque vel arcu eget augue placerat rutrum. Donec mi nunc, sagittis a metus id, laoreet sodales enim. Quisque at interdum est. Nulla facilisi. Quisque bibendum, nunc quis vestibulum consequat, lacus ligula bibendum metus, vitae tincidunt nunc dui et quam. Sed dolor nibh, ultrices at urna sit amet, cursus rhoncus nisi. Proin justo mauris, venenatis vel ex at, dignissim scelerisque diam. Pellentesque imperdiet accumsan pulvinar. Suspendisse interdum imperdiet urna, ac sagittis velit placerat et. Maecenas euismod magna ullamcorper lacus egestas, sed scelerisque lacus mollis. Maecenas posuere malesuada lacinia. Proin viverra in ante eu aliquet. Sed luctus porta viverra.
 
 Sed eu elementum elit. Vestibulum sed condimentum mauris. Morbi tempus nibh ante, sed suscipit ante pellentesque vitae. Praesent at quam ac odio condimentum sollicitudin. Nullam congue vulputate odio ut cursus. Etiam euismod nunc nec magna vulputate malesuada. Vestibulum vestibulum quam in finibus viverra. Curabitur vulputate elit diam, sed interdum tellus interdum vel. Mauris cursus, dolor eu tempus malesuada, nisl diam feugiat diam, sed vestibulum leo odio fermentum ante.
 
 Vestibulum consectetur sit amet mauris sit amet pharetra. Quisque sollicitudin sagittis arcu, in consequat lorem condimentum nec. Curabitur vulputate eget arcu ac pulvinar. Nam luctus, mi ut vulputate lobortis, lacus eros tempor dolor, vitae fermentum tortor felis non felis. Nunc id tincidunt arcu. Cras vehicula scelerisque risus, in tristique nibh consequat quis. Donec ut enim sed ante congue pretium. Mauris blandit eleifend volutpat. Praesent convallis eros vitae dolor condimentum, imperdiet dapibus arcu congue. Nam eleifend ipsum erat, at tristique turpis scelerisque non. Fusce et porttitor nulla.
 
 Duis vitae lectus a libero elementum commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque leo purus, elementum nec dolor in, convallis viverra metus. Ut porttitor ligula turpis, eu aliquet massa ullamcorper id. Vivamus faucibus metus et ante ultricies euismod ut at lacus. Phasellus dui mauris, vestibulum sit amet lectus ut, vulputate suscipit purus. Mauris id ultricies risus. Fusce vestibulum neque purus. Donec ac feugiat lorem, non posuere ligula. Quisque ut enim dolor. Donec vestibulum sodales nisl in placerat. "
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/second_divider" />
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/second_divider" />
 
 
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+
+
+
+</ScrollView>
+

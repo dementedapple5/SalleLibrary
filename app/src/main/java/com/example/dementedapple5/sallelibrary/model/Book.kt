@@ -1,5 +1,6 @@
 package com.example.dementedapple5.sallelibrary.model
 
+import android.graphics.Bitmap
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -11,19 +12,20 @@ class Book() {
 
     var title: String = ""
     var price: Float = 0.0f
-    var img: Int = 0
+    var img: String = ""
     var author: String = ""
     var releaseDate: Date = Date()
     var rate: Int = 0
 
 
 
-    constructor(title: String, author: String) : this() {
+    constructor(title: String, author: String, img: String) : this() {
         this.title = title
         this.author = author
+        this.img = img
     }
 
-    constructor(title: String, price: Float, img: Int, author: String, releaseDate: Date, rate: Int) : this() {
+    constructor(title: String, price: Float, img: String, author: String, releaseDate: Date, rate: Int) : this() {
         this.title = title
         this.price = price
         this.img = img

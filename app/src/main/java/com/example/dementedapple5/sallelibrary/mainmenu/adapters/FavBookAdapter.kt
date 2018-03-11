@@ -24,6 +24,6 @@ class FavBookAdapter(val mFavBooks: ArrayList<Book>): RecyclerView.Adapter<FavBo
     }
 
     override fun onBindViewHolder(holder: MyFavBookViewHolder, position: Int) {
-        holder.mCardView.book_cover.setImageResource(mFavBooks[position].img)
+        //holder.mCardView.book_cover.setImageBitmap(mFavBooks[position].img)
     }
 }

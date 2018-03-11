@@ -19,62 +19,65 @@ import java.nio.charset.Charset
 class NetworkUtils {
 
     companion object {
-        val LOG_TAG = NetworkUtils.javaClass.simpleName
         val BASE_URL = "https://www.googleapis.com/books/v1/volumes?"
         val QUERY_PARAM = "q"
         val MAX_RESULTS = "maxResults"
         val PRINT_TYPE = "printType"
 
-        fun getBookInfo(queryString: String): String? {
-            val urlConnection: HttpURLConnection
-            val reader: BufferedReader
+        fun getBookInfo(queryArray: ArrayList<String>): ArrayList<String>? {
+            var urlConnection: HttpURLConnection
+            var reader: BufferedReader
             var bookJSONString = ""
+            val categoriesArray: ArrayList<String> = ArrayList()
 
-            try {
-                val requestUri = Uri.parse(BASE_URL).buildUpon()
-                        .appendQueryParameter(QUERY_PARAM, queryString)
-                        .appendQueryParameter(MAX_RESULTS, "4")
-                        .appendQueryParameter(PRINT_TYPE, "books")
-                        .build()
+            for (queryString in queryArray) {
+                try {
+                    val requestUri = Uri.parse(BASE_URL).buildUpon()
+                            .appendQueryParameter(QUERY_PARAM, "+subject:$queryString")
+                            .appendQueryParameter(MAX_RESULTS, "20")
+                            .appendQueryParameter(PRINT_TYPE, "books")
+                            .build()
 
-                val requestUrl = URL(requestUri.toString())
+                    val requestUrl = URL(requestUri.toString())
 
-                Log.d("URLCONN:", requestUrl.toString())
+                    Log.d("URLCONN:", requestUrl.toString())
 
-                urlConnection = requestUrl.openConnection() as HttpURLConnection
-                urlConnection.requestMethod = "GET"
-                Log.d("URLCONN:", requestUrl.toString())
-                urlConnection.connect()
+                    urlConnection = requestUrl.openConnection() as HttpURLConnection
+                    urlConnection.requestMethod = "GET"
+                    urlConnection.connect()
 
-                val inputStream = urlConnection.inputStream
+                    val inputStream = urlConnection.inputStream
 
-                val buffer = StringBuffer()
+                    val buffer = StringBuffer()
 
 
-                if (inputStream == null) {
-                    return null
+                    if (inputStream == null) {
+                        return null
+                    }
+
+                    reader = BufferedReader(InputStreamReader(inputStream))
+
+                    val jsonArr = reader.readLines()
+
+                    for (elem in jsonArr) {
+                        buffer.append("$elem\n")
+                    }
+
+                    bookJSONString = buffer.toString()
+
+                    urlConnection.disconnect()
+                    reader.close()
+
+                } catch (e: Exception) {
+                    e.printStackTrace()
                 }
-
-                reader = BufferedReader(InputStreamReader(inputStream))
-
-                val jsonArr = reader.readLines()
-
                 Log.d("BOOKJSON:", bookJSONString)
 
-                for (elem in jsonArr) {
-                    buffer.append("$elem\n")
-                }
-
-                bookJSONString = buffer.toString()
-
-                urlConnection.disconnect()
-                reader.close()
-
-            } catch (e: Exception) {
-                e.printStackTrace()
+                categoriesArray.add(bookJSONString)
             }
-            Log.d("BOOKJSON:", bookJSONString)
-            return bookJSONString
+
+
+            return categoriesArray
         }
 
     }

@@ -1,64 +1,88 @@
 package com.example.dementedapple5.sallelibrary.mainmenu
 
+import android.graphics.Bitmap
 import android.os.AsyncTask
 import android.support.v4.app.FragmentActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import com.example.dementedapple5.sallelibrary.mainmenu.adapters.BookShelfAdapter
 import com.example.dementedapple5.sallelibrary.model.Book
 import com.example.dementedapple5.sallelibrary.model.BookShelf
 import org.json.JSONObject
+import android.graphics.BitmapFactory
+
+
 
 /**
  * Created by dementedapple5 on 10/03/2018.
  */
-class FetchBook(val recyclerView: RecyclerView, val activity: FragmentActivity): AsyncTask<String, Void, String>() {
+class FetchBook(val recyclerView: RecyclerView, val activity: FragmentActivity, val bookCategories: ArrayList<String>) : AsyncTask<ArrayList<String>, Void, ArrayList<String>>() {
 
-
-    override fun doInBackground(vararg p0: String?): String {
+    override fun doInBackground(vararg p0: ArrayList<String>?): ArrayList<String> {
         return NetworkUtils.getBookInfo(p0[0]!!)!!
     }
 
-    override fun onPostExecute(result: String?) {
-        super.onPostExecute(result)
-        val jsonObject = JSONObject(result)
-        val booksArray = jsonObject.getJSONArray("items")
 
-        val mBookArray: ArrayList<Book> = ArrayList()
+    override fun onPostExecute(result: ArrayList<String>) {
+        super.onPostExecute(result)
+
+        var mBookArray: ArrayList<Book>
         val mArray: ArrayList<BookShelf> = ArrayList()
         var book: Book
+        var counter = 0
 
-        for (i in 0 until booksArray.length()) {
-            val bookJSON = booksArray.getJSONObject(i)
+        for (category in result) {
+            val jsonObject = JSONObject(category)
+            val booksArray = jsonObject.getJSONArray("items")
+            mBookArray = ArrayList()
 
-            var title: String = ""
-            var author: String = ""
+            for (i in 0 until booksArray.length()) {
 
-            val volumeInfo = bookJSON.getJSONObject("volumeInfo")
+                Log.d("BOOKAR:", booksArray.length().toString())
 
-            try {
-                title = volumeInfo.getString("title")
-                author = volumeInfo.getString("authors")
-            }catch (e: Exception){
-                e.printStackTrace()
+                val bookJSON = booksArray.getJSONObject(i)
+
+                var title = ""
+                var author = ""
+                var img = ""
+
+                val volumeInfo = bookJSON.getJSONObject("volumeInfo")
+
+                try {
+                    title = volumeInfo.getString("title")
+                    author = volumeInfo.getString("authors")
+
+                    val imageLinks = volumeInfo.getJSONObject("imageLinks")
+
+                    img = imageLinks.getString("thumbnail")
+
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+
+                book = Book(title, author, img)
+
+                mBookArray.add(book)
+
             }
 
-            book = Book(title, author)
+            Log.d("BOOKARLEN:", mBookArray.size.toString())
 
-            mBookArray.add(book)
+            mArray.add(BookShelf(bookCategories[counter], mBookArray))
 
+            Log.d("ARLEN:", mArray.size.toString())
+
+
+
+            counter++
         }
 
-        mArray.add(BookShelf("Ficcion", mBookArray))
-        mArray.add(BookShelf("Aventura", mBookArray))
-        mArray.add(BookShelf("Accion", mBookArray))
-        mArray.add(BookShelf("Suspenso", mBookArray))
-        mArray.add(BookShelf("Thriller", mBookArray))
-
+        Log.d("ARLEN:", mArray.size.toString())
 
         recyclerView.setHasFixedSize(true)
 
-        val mLayoutManager = LinearLayoutManager (activity.applicationContext, LinearLayoutManager.VERTICAL, false)
+        val mLayoutManager = LinearLayoutManager(activity.applicationContext, LinearLayoutManager.VERTICAL, false)
 
         recyclerView.layoutManager = mLayoutManager
 
@@ -66,5 +90,10 @@ class FetchBook(val recyclerView: RecyclerView, val activity: FragmentActivity):
 
         recyclerView.adapter = mAdapter
     }
+
+
+
+
+
 
 }

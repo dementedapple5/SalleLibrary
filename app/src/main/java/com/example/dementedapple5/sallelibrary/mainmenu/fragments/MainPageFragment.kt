@@ -29,18 +29,15 @@ class MainPageFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-/*
-        val mArrayColor: ArrayList<Int> = ArrayList()
 
-        mArrayColor.add(R.color.material_blue_grey_800)
-        mArrayColor.add(R.color.material_deep_teal_200)
-        mArrayColor.add(R.color.material_grey_100)
-        mArrayColor.add(R.color.colorPrimary)
-        mArrayColor.add(R.color.colorAccent)
-        mArrayColor.add(R.color.colorPrimaryDark)*/
+        val bookCategories = ArrayList<String>()
+        bookCategories.add("Action")
+        bookCategories.add("Adventure")
+        bookCategories.add("Fiction")
+        bookCategories.add("Thriller")
+        bookCategories.add("Comedy")
 
-        FetchBook(recycler, activity).execute("flowers")
-
+        FetchBook(recycler, activity, bookCategories).execute(bookCategories)
     }
 
     override fun onAttach(context: Context?) {

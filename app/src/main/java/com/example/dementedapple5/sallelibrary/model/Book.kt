@@ -1,10 +1,12 @@
 package com.example.dementedapple5.sallelibrary.model
 
+import java.io.Serializable
+
 /**
  * Created by dementedapple5 on 22/02/2018.
  */
 
-class Book() {
+class Book(): Serializable {
 
 
     var title: String = ""

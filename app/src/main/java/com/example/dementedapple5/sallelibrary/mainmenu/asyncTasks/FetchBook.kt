@@ -1,6 +1,5 @@
-package com.example.dementedapple5.sallelibrary.mainmenu
+package com.example.dementedapple5.sallelibrary.mainmenu.asyncTasks
 
-import android.graphics.Bitmap
 import android.os.AsyncTask
 import android.support.v4.app.FragmentActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -10,8 +9,7 @@ import com.example.dementedapple5.sallelibrary.mainmenu.adapters.BookShelfAdapte
 import com.example.dementedapple5.sallelibrary.model.Book
 import com.example.dementedapple5.sallelibrary.model.BookShelf
 import org.json.JSONObject
-import android.graphics.BitmapFactory
-
+import com.example.dementedapple5.sallelibrary.mainmenu.utils.NetworkUtils
 
 
 /**

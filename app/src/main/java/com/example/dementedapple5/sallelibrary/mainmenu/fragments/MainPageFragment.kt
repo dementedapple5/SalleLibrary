@@ -3,19 +3,12 @@ package com.example.dementedapple5.sallelibrary.mainmenu.fragments
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 
 import com.example.dementedapple5.sallelibrary.R
-import com.example.dementedapple5.sallelibrary.mainmenu.FetchBook
-import com.example.dementedapple5.sallelibrary.mainmenu.NetworkUtils
-import com.example.dementedapple5.sallelibrary.mainmenu.adapters.BookShelfAdapter
-import com.example.dementedapple5.sallelibrary.model.Book
-import com.example.dementedapple5.sallelibrary.model.BookShelf
+import com.example.dementedapple5.sallelibrary.mainmenu.asyncTasks.FetchBook
 import kotlinx.android.synthetic.main.fragment_main_page.*
 
 class MainPageFragment : Fragment() {

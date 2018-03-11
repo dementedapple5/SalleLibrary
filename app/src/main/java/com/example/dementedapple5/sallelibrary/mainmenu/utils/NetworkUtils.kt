@@ -1,17 +1,11 @@
-package com.example.dementedapple5.sallelibrary.mainmenu
+package com.example.dementedapple5.sallelibrary.mainmenu.utils
 
 import android.net.Uri
 import android.util.Log
-import com.beust.klaxon.JsonReader
-import com.beust.klaxon.Klaxon
-import com.example.dementedapple5.sallelibrary.model.Book
 import java.io.BufferedReader
-import java.io.InputStream
 import java.io.InputStreamReader
-import java.io.Reader
 import java.net.HttpURLConnection
 import java.net.URL
-import java.nio.charset.Charset
 
 /**
  * Created by dementedapple5 on 10/03/2018.

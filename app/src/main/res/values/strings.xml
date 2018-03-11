@@ -6,6 +6,7 @@
     <string name="tab_text_1">Librería</string>
     <string name="tab_text_2">Mi Wishlist</string>
     <string name="action_log_out">Cerrar sesión</string>
+    <string name="action_search">action_search</string>
     <string name="signup_google">Inicia con Google</string>
     <string name="logout_confirmation">Estás seguro/a de que quieres cerrar sesión?</string>
     <string name="logout_ok">OK</string>

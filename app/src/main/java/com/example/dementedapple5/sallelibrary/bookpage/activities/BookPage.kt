@@ -41,7 +41,7 @@ class BookPage : AppCompatActivity(), BookLayout.OnAddedToWishlistListener {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
-            R.id.actionlogout -> {
+            R.id.action_logout -> {
                 mAuth.signOut()
                 return true
             }

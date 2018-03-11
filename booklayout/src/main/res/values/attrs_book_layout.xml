@@ -1,0 +1,14 @@
+<resources>
+    <declare-styleable name="BookLayout">
+        <attr name="imageOfBook" format="reference"/>
+        <attr name="bookTitle" format="string"/>
+        <attr name="bookAuthor" format="string"/>
+        <attr name="bookPublisher" format="string"/>
+        <attr name="bookDate" format="string"/>
+        <attr name="buttonIcon" format="reference"/>
+        <attr name="bookGenre" format="string"/>
+        <attr name="bookPages" format="string"/>
+        <attr name="bookDescription" format="string"/>
+        <attr name="buttonText" format="string"/>
+    </declare-styleable>
+</resources>

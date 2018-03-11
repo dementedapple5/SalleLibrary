@@ -37,8 +37,6 @@ class FetchBook(val recyclerView: RecyclerView, val activity: FragmentActivity, 
 
             for (i in 0 until booksArray.length()) {
 
-                Log.d("BOOKAR:", booksArray.length().toString())
-
                 val bookJSON = booksArray.getJSONObject(i)
 
                 var title = ""
@@ -49,7 +47,10 @@ class FetchBook(val recyclerView: RecyclerView, val activity: FragmentActivity, 
 
                 try {
                     title = volumeInfo.getString("title")
-                    author = volumeInfo.getString("authors")
+
+                    val authors = volumeInfo.getJSONArray("authors")
+
+                    author = authors.getString(0)
 
                     val imageLinks = volumeInfo.getJSONObject("imageLinks")
 
@@ -65,18 +66,12 @@ class FetchBook(val recyclerView: RecyclerView, val activity: FragmentActivity, 
 
             }
 
-            Log.d("BOOKARLEN:", mBookArray.size.toString())
-
             mArray.add(BookShelf(bookCategories[counter], mBookArray))
-
-            Log.d("ARLEN:", mArray.size.toString())
 
 
 
             counter++
         }
-
-        Log.d("ARLEN:", mArray.size.toString())
 
         recyclerView.setHasFixedSize(true)
 

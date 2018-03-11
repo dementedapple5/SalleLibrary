@@ -1,22 +1,17 @@
 <resources>
     <string name="app_name">SalleLibrary</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="username">Username</string>
-    <string name="password">Password</string>
-    <string name="retype_password">Retype Password</string>
     <string name="register">Register</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="tab_text_1">Librería</string>
     <string name="tab_text_2">Mi Wishlist</string>
-    <string name="action_settings">Settings</string>
-    <string name="section_format">Hello World from section: %1$d</string>
-    <string name="tabtext_login">Iniciar sesión</string>
-    <string name="tabtext_signup">Registrarse</string>
-    <string name="auth_et_username">Nombre de usuario</string>
-    <string name="auth_et_password">Contraseña</string>
-    <string name="auth_bu_text">Iniciar sesión</string>
+    <string name="action_log_out">Cerrar sesión</string>
     <string name="signup_google">Inicia con Google</string>
+    <string name="logout_confirmation">Estás seguro/a de que quieres cerrar sesión?</string>
+    <string name="logout_ok">OK</string>
+    <string name="logout_cancel">Cancelar</string>
+
     <string name="title_activity_tabbed">TabbedActivity</string>
+
+    <string name="error_sign_in">Ha ocurrido un error en el inicio de sesión</string>
 </resources>

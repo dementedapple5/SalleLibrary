@@ -31,6 +31,7 @@ class MainPageFragment : Fragment() {
         bookCategories.add("Comedy")
 
         FetchBook(recycler, activity, bookCategories).execute(bookCategories)
+
     }
 
     override fun onAttach(context: Context?) {

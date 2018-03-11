@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mConstBook"
     android:layout_width="@dimen/book_width"
     android:layout_height="match_parent"
@@ -11,41 +12,42 @@
     <ImageView
         android:id="@+id/mBookImg"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/img_height"
         android:layout_marginBottom="8dp"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/mBookTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:color/holo_blue_dark" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/mBookTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:maxLines="2"
         android:text="Title"
+        android:textColor="@color/black"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/mBookPrice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mBookImg" />
 
     <TextView
         android:id="@+id/mBookPrice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:autoSizeMinTextSize="9sp"
+        android:maxLines="1"
         android:text="price"
-        android:textSize="12sp"
-        android:textAlignment="textEnd"
         android:textColor="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mBookTitle" />
 </android.support.constraint.ConstraintLayout>

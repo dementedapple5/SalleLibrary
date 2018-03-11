@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SalleLibrary.iml" filepath="$PROJECT_DIR$/SalleLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/SalleLibrary.iml" filepath="$PROJECT_DIR$/.idea/SalleLibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/SalleLibrary.iml" filepath="$PROJECT_DIR$/.idea/SalleLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/booklayout/booklayout.iml" filepath="$PROJECT_DIR$/booklayout/booklayout.iml" />
     </modules>

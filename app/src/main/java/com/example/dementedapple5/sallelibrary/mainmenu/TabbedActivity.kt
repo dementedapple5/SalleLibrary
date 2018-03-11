@@ -178,8 +178,8 @@ class TabbedActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<String
                 e.printStackTrace()
             }
 
-            book = Book(title, author, img)
-            mBookArray.add(book)
+//            book = Book(title, author, img)
+//            mBookArray.add(book)
 
         }
     }

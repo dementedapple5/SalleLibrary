@@ -1,11 +1,5 @@
 package com.example.dementedapple5.sallelibrary.model
 
-import android.graphics.Bitmap
-import android.os.Parcel
-import android.os.Parcelable
-import java.util.*
-import kotlin.collections.ArrayList
-
 /**
  * Created by dementedapple5 on 22/02/2018.
  */
@@ -21,7 +15,6 @@ class Book() {
     var author: String = ""
     var releaseDate: String = ""
     var description: String = ""
-
 
     constructor(title: String, author: String, releaseDate: String, publisher: String, genre: String, numPages: Int, description: String, img: String) : this() {
         this.title = title

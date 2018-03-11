@@ -25,7 +25,7 @@
 
 
         <com.example.booklayout.BookLayout
-            android:id="@+id/book"
+            android:id="@+id/mBookLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             custom:bookAuthor=""

@@ -2,6 +2,7 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -100,37 +101,45 @@
 
         <TextView
             android:id="@+id/book_genre"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="32dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/circlebackground"
-            android:elevation="6dp"
-            android:padding="8dp"
+            android:elevation="2dp"
             android:gravity="center"
+            android:padding="8dp"
             android:text="Género"
-            android:textSize="12sp"
+            android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/cardview_light_background"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/first_divider" />
+            app:layout_constraintTop_toTopOf="@+id/first_divider" />
 
         <TextView
             android:id="@+id/book_pages"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginEnd="80dp"
-            android:layout_marginTop="32dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/circlebackground"
-            android:elevation="6dp"
+            android:elevation="2dp"
             android:gravity="center"
             android:padding="8dp"
             android:text="200 Páginas"
-            android:textSize="12sp"
+            android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/cardview_light_background"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/first_divider" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/book_genre" />
 
         <View
             android:id="@+id/second_divider"
@@ -138,11 +147,11 @@
             android:layout_height="2dp"
             android:layout_marginEnd="24dp"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/book_genre" />
+            app:layout_constraintTop_toBottomOf="@+id/book_pages" />
 
         <TextView
             android:id="@+id/expandable_desc"

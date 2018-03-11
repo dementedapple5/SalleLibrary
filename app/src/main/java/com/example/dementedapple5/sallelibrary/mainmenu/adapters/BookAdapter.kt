@@ -41,17 +41,8 @@ class BookAdapter(val mBooks: ArrayList<Book>): RecyclerView.Adapter<BookAdapter
         holder.mConstraint.mBookImg.setOnClickListener({
             val intent = Intent(holder.mConstraint.context, BookPage::class.java)
             val bundle = Bundle()
-
-            bundle.putString("author", mBooks[position].author)
-            bundle.putString("title", mBooks[position].title)
-            bundle.putString("img", mBooks[position].img)
-            bundle.putString("description", mBooks[position].description)
-            bundle.putString("numPages", mBooks[position].numPages.toString())
-            bundle.putString("publisher", mBooks[position].publisher)
-            bundle.putString("releaseDate", mBooks[position].releaseDate)
-            bundle.putString("genre", mBooks[position].genre)
-
-
+            bundle.putSerializable("bookData", mBooks[position])
+            intent.putExtras(bundle)
             intent.putExtra("bookData", bundle)
             holder.mConstraint.context.startActivity(intent)
         })

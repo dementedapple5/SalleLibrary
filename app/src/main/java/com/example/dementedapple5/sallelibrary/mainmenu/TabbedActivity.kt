@@ -2,31 +2,30 @@ package com.example.dementedapple5.sallelibrary.mainmenu
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
+import android.content.DialogInterface
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
-
 import android.os.Bundle
 import android.support.design.widget.TabLayout
-import android.view.Menu
-import android.view.MenuItem
-
-import com.example.dementedapple5.sallelibrary.R
-import com.example.dementedapple5.sallelibrary.mainmenu.adapters.SectionsPagerAdapter
-import com.example.dementedapple5.sallelibrary.userauth.activities.LoginActivity
-import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_tabbed.*
-import kotlinx.android.synthetic.main.tabs.*
-import kotlinx.android.synthetic.main.toolbar.*
-import android.content.DialogInterface
 import android.support.v4.app.LoaderManager
 import android.support.v4.content.Loader
 import android.support.v7.app.AlertDialog
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.SearchView
-import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewAnimationUtils
+import android.widget.Toast
+import com.example.dementedapple5.sallelibrary.R
+import com.example.dementedapple5.sallelibrary.mainmenu.adapters.SectionsPagerAdapter
 import com.example.dementedapple5.sallelibrary.mainmenu.asyncTasks.SearchBook
 import com.example.dementedapple5.sallelibrary.model.Book
+import com.example.dementedapple5.sallelibrary.userauth.activities.LoginActivity
+import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_tabbed.*
+import kotlinx.android.synthetic.main.search_toolbar.*
+import kotlinx.android.synthetic.main.tabs.*
+import kotlinx.android.synthetic.main.toolbar.*
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -228,6 +227,11 @@ class TabbedActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<String
 
             mBookArray.add(book)
         }
+        val intent = Intent(this, BooksFromSearchActivity::class.java)
+        val bundle = Bundle()
+        bundle.putSerializable("mResultArray", mBookArray)
+        intent.putExtras(bundle)
+        startActivity(intent)
     }
 
     override fun onLoaderReset(loader: Loader<String>?) {}

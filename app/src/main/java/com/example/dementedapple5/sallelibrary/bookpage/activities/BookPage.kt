@@ -3,13 +3,11 @@ package com.example.dementedapple5.sallelibrary.bookpage.activities
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.example.booklayout.BookLayout
 import com.example.dementedapple5.sallelibrary.R
 import com.example.dementedapple5.sallelibrary.mainmenu.asyncTasks.SetBookImages
-import com.example.dementedapple5.sallelibrary.model.Book
 import com.example.dementedapple5.sallelibrary.model.Book
 import com.example.dementedapple5.sallelibrary.model.SharedPreference
 import com.google.firebase.auth.FirebaseAuth
@@ -20,17 +18,14 @@ class BookPage : AppCompatActivity(), BookLayout.OnAddedToWishlistListener {
     private lateinit var mAuth: FirebaseAuth
     var sharedPreference = SharedPreference()
     var booksInWishlist: ArrayList<Book> = ArrayList<Book>()
-    lateinit var bookObject: Book
     var book = Book()
 
     override fun onAddedToWishlist(source: BookLayout, textToDisplay: String) {
         mBookLayout.setWishlistButtonIcon(R.drawable.ic_done)
         mBookLayout.setButtonText("En tu Wishlist")
 
-        sharedPreference.addToWishlist(this, bookObject)
+        sharedPreference.addToWishlist(this, book)
 
-        mBookLayout.setWishlistButtonIcon(R.drawable.ic_done)
-        mBookLayout.setButtonText("En tu Wishlist")
         Snackbar.make(findViewById(R.id.coordinator), "${textToDisplay} ha sido añadido a tu Wishlist", Snackbar.LENGTH_LONG).show()
     }
 
@@ -39,8 +34,8 @@ class BookPage : AppCompatActivity(), BookLayout.OnAddedToWishlistListener {
         setContentView(R.layout.activity_book_page)
         setSupportActionBar(book_toolbar)
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true);
-        supportActionBar?.setDisplayShowHomeEnabled(true);
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
 
         mAuth = FirebaseAuth.getInstance()
 

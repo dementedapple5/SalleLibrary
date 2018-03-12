@@ -1,15 +1,21 @@
 package com.example.dementedapple5.sallelibrary.mainmenu.adapters
 
+import android.content.Intent
+import android.os.Bundle
 import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.dementedapple5.sallelibrary.R
+import com.example.dementedapple5.sallelibrary.bookpage.activities.BookPage
+import com.example.dementedapple5.sallelibrary.mainmenu.asyncTasks.SetBookImages
 import com.example.dementedapple5.sallelibrary.model.Book
+import kotlinx.android.synthetic.main.book_item.view.*
 import kotlinx.android.synthetic.main.fav_book_item.view.*
 
 class FavBookAdapter(val mFavBooks: ArrayList<Book>): RecyclerView.Adapter<FavBookAdapter.Companion.MyFavBookViewHolder>() {
+
     companion object {
         class MyFavBookViewHolder(val mCardView: CardView): RecyclerView.ViewHolder(mCardView)
     }
@@ -24,6 +30,14 @@ class FavBookAdapter(val mFavBooks: ArrayList<Book>): RecyclerView.Adapter<FavBo
     }
 
     override fun onBindViewHolder(holder: MyFavBookViewHolder, position: Int) {
-        //holder.mCardView.book_cover.setImageBitmap(mFavBooks[position].img)
+        SetBookImages(holder.mCardView.book_cover).execute(mFavBooks[position].img)
+
+        holder.mCardView.book_cover.setOnClickListener({
+            val intent = Intent(holder.mCardView.context, BookPage::class.java)
+            val bundle = Bundle()
+            bundle.putSerializable("bookData", mFavBooks[position])
+            intent.putExtras(bundle)
+            holder.mCardView.context.startActivity(intent)
+        })
     }
 }

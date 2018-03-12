@@ -43,7 +43,6 @@ class BookAdapter(val mBooks: ArrayList<Book>): RecyclerView.Adapter<BookAdapter
             val bundle = Bundle()
             bundle.putSerializable("bookData", mBooks[position])
             intent.putExtras(bundle)
-            intent.putExtra("bookData", bundle)
             holder.mConstraint.context.startActivity(intent)
         })
     }

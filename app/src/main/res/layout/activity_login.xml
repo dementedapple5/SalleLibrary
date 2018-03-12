@@ -14,8 +14,8 @@
         android:id="@+id/logo"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_width="240dp"
-        android:layout_height="240dp"
+        android:layout_width="@dimen/default_width"
+        android:layout_height="@dimen/default_height"
         android:src="@mipmap/ic_salle_library"/>
     
     <TextView
@@ -24,8 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/logo"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="28sp"
-        android:text="Salle Library"/>
+        android:textSize="@dimen/text_login_size"
+        android:text="@string/app_title_login"/>
 
     <com.shobhitpuri.custombuttons.GoogleSignInButton
         android:id="@+id/signup_button"

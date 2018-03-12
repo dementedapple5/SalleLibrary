@@ -1,24 +1,18 @@
 package com.example.dementedapple5.sallelibrary.mainmenu.fragments
 
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 
 import com.example.dementedapple5.sallelibrary.R
-import com.example.dementedapple5.sallelibrary.mainmenu.adapters.BookShelfAdapter
 import com.example.dementedapple5.sallelibrary.mainmenu.adapters.FavBookAdapter
 import com.example.dementedapple5.sallelibrary.model.Book
-import com.example.dementedapple5.sallelibrary.model.BookShelf
 import com.example.dementedapple5.sallelibrary.model.SharedPreference
-import kotlinx.android.synthetic.main.fragment_main_page.*
 import kotlinx.android.synthetic.main.fragment_wishlist.*
 
 class WishlistFragment : Fragment() {
@@ -37,7 +31,7 @@ class WishlistFragment : Fragment() {
             val sharedPreference = SharedPreference()
             val booksInWishlist: ArrayList<Book>? = sharedPreference.getBooksInWishlist(activity)
 
-            if (booksInWishlist == null) {
+            if (booksInWishlist == null || booksInWishlist.count() == 0) {
                 val noBooksMessage = Snackbar.make(activity.findViewById(R.id.gridlayout), "Aún no tienes ningún libro añadido a tu Wishlist", Snackbar.LENGTH_INDEFINITE)
 
                 noBooksMessage.setAction(R.string.snackbar_ignore, object: View.OnClickListener {
@@ -47,10 +41,18 @@ class WishlistFragment : Fragment() {
                 })
 
                 noBooksMessage.show()
-            } else {
-                val mAdapter = FavBookAdapter(booksInWishlist)
-                wishlist_recycler.adapter = mAdapter
             }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val sharedPreference = SharedPreference()
+        val booksInWishlist: ArrayList<Book>? = sharedPreference.getBooksInWishlist(activity)
+
+        if (booksInWishlist != null) {
+            val mAdapter = FavBookAdapter(booksInWishlist)
+            wishlist_recycler.adapter = mAdapter
         }
     }
 

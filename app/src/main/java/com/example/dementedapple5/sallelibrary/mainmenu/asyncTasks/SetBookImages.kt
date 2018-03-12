@@ -6,10 +6,6 @@ import android.graphics.BitmapFactory
 import android.util.Log
 import android.widget.ImageView
 
-
-/**
- * Created by dementedapple5 on 11/03/2018.
- */
 class SetBookImages(val bookImg: ImageView) : AsyncTask<String, Void, Bitmap?>(){
 
     override fun doInBackground(vararg p0: String?): Bitmap? {

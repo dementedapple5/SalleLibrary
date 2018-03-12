@@ -4,12 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
 import com.google.gson.Gson
-import java.util.*
-import kotlin.collections.ArrayList
 
-/**
- * Created by Javier_T on 3/11/2018.
- */
 class SharedPreference() {
     companion object {
         val PREFS_NAME = "Salle_Library"

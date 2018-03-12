@@ -1,13 +1,12 @@
 package com.example.dementedapple5.sallelibrary.mainmenu
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
+import android.view.MenuItem
 import com.example.dementedapple5.sallelibrary.R
 import com.example.dementedapple5.sallelibrary.mainmenu.adapters.SearchResultAdapter
 import com.example.dementedapple5.sallelibrary.model.Book
-import kotlinx.android.synthetic.main.activity_book_page.*
 import kotlinx.android.synthetic.main.activity_books_from_search.*
 
 class BooksFromSearchActivity : AppCompatActivity() {
@@ -37,6 +36,18 @@ class BooksFromSearchActivity : AppCompatActivity() {
         val mAdapter = SearchResultAdapter(books)
 
         mRecyclerBookSearchResult.adapter = mAdapter
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
 
     }
 }

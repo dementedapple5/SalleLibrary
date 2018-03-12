@@ -13,4 +13,18 @@
     <dimen name="title_size">16sp</dimen>
     <dimen name="book_width">100dp</dimen>
     <dimen name="img_height">130dp</dimen>
+    <dimen name="default_elevation">4dp</dimen>
+    <dimen name="default_width">240dp</dimen>
+    <dimen name="default_height">240dp</dimen>
+    <dimen name="text_login_size">28sp</dimen>
+    <dimen name="margin_eight">8dp</dimen>
+    <dimen name="min_text_size">9sp</dimen>
+    <dimen name="price_size">12sp</dimen>
+    <dimen name="cardview_height">180dp</dimen>
+    <dimen name="margin_twelve">12dp</dimen>
+    <dimen name="small_text_size">9sp</dimen>
+    <dimen name="margin_sixteen">16dp</dimen>
+    <dimen name="search_book_width">120dp</dimen>
+    <dimen name="search_book_height">220dp</dimen>
+    <dimen name="tab_indicator_height">3dp</dimen>
 </resources>

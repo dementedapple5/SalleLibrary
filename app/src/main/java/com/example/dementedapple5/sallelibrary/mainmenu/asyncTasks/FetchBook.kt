@@ -1,15 +1,10 @@
 package com.example.dementedapple5.sallelibrary.mainmenu.asyncTasks
 
 
-import android.content.Intent
 import android.os.AsyncTask
 import android.support.v4.app.FragmentActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
-import android.view.MotionEvent
-import com.example.dementedapple5.sallelibrary.bookpage.activities.BookPage
-import android.view.View
 import com.example.dementedapple5.sallelibrary.mainmenu.adapters.BookShelfAdapter
 import com.example.dementedapple5.sallelibrary.mainmenu.utils.NetworkUtils
 import com.example.dementedapple5.sallelibrary.model.Book
@@ -17,17 +12,10 @@ import com.example.dementedapple5.sallelibrary.model.BookShelf
 import org.json.JSONException
 import org.json.JSONObject
 
-
-/**
- * Created by dementedapple5 on 10/03/2018.
- */
 class FetchBook(val recyclerView: RecyclerView, val activity: FragmentActivity, val bookCategories: ArrayList<String>) : AsyncTask<ArrayList<String>, Void, ArrayList<String>>() {
-
-
     override fun doInBackground(vararg p0: ArrayList<String>?): ArrayList<String> {
         return NetworkUtils.getBookInfo(p0[0]!!)!!
     }
-
 
     override fun onPostExecute(result: ArrayList<String>) {
         super.onPostExecute(result)

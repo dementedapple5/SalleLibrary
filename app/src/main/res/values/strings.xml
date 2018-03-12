@@ -19,4 +19,11 @@
     <string name="title_activity_tabbed">TabbedActivity</string>
 
     <string name="error_sign_in">Ha ocurrido un error en el inicio de sesión</string>
+    <string name="add_to_wishlist">Añadir a mi Wishlist</string>
+    <string name="in_your_wishlist">En tu Wishlist</string>
+    <string name="search_title">Busca un título</string>
+    <string name="app_title_login">Salle Library</string>
+    <string name="title_of_item">Title</string>
+    <string name="price_text">price</string>
+    <string name="default_shelf_title">Default</string>
 </resources>

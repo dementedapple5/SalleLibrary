@@ -1,9 +1,8 @@
 package com.example.dementedapple5.sallelibrary.bookpage.activities
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
-import android.util.Log
+import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.example.booklayout.BookLayout
@@ -18,8 +17,6 @@ import kotlinx.android.synthetic.main.activity_book_page.*
 class BookPage : AppCompatActivity(), BookLayout.OnAddedToWishlistListener {
     private lateinit var mAuth: FirebaseAuth
     var sharedPreference = SharedPreference()
-    var sharedPreference = SharedPreference()
-    var booksInWishlist: ArrayList<Book> = ArrayList<Book>()
     var book = Book()
 
     override fun onAddedToWishlist(source: BookLayout, textToDisplay: String) {
@@ -27,7 +24,7 @@ class BookPage : AppCompatActivity(), BookLayout.OnAddedToWishlistListener {
         if (checkIfBookIsInWishlist(book)) {
             sharedPreference.removeFromWishlist(this, book)
             mBookLayout.setWishlistButtonIcon(R.drawable.ic_action_add)
-            mBookLayout.setButtonText("Añadir a mi Wishlist")
+            mBookLayout.setButtonText(getString(R.string.add_to_wishlist))
             Snackbar.make(findViewById(R.id.coordinator), "${textToDisplay} ha sido eliminado de tu Wishlist", Snackbar.LENGTH_LONG).show()
         } else {
             sharedPreference.addToWishlist(this, book)
@@ -35,12 +32,6 @@ class BookPage : AppCompatActivity(), BookLayout.OnAddedToWishlistListener {
             mBookLayout.setButtonText("En tu Wishlist")
             Snackbar.make(findViewById(R.id.coordinator), "${textToDisplay} ha sido añadido a tu Wishlist", Snackbar.LENGTH_LONG).show()
         }
-        mBookLayout.setWishlistButtonIcon(R.drawable.ic_done)
-        mBookLayout.setButtonText("En tu Wishlist")
-
-        sharedPreference.addToWishlist(this, book)
-
-        Snackbar.make(findViewById(R.id.coordinator), "${textToDisplay} ha sido añadido a tu Wishlist", Snackbar.LENGTH_LONG).show()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -104,10 +95,10 @@ class BookPage : AppCompatActivity(), BookLayout.OnAddedToWishlistListener {
     private fun updateUI(book: Book) {
         if (checkIfBookIsInWishlist(book)) {
             mBookLayout.setWishlistButtonIcon(R.drawable.ic_done)
-            mBookLayout.setButtonText("En tu Wishlist")
+            mBookLayout.setButtonText(getString(R.string.in_your_wishlist))
         } else {
             mBookLayout.setWishlistButtonIcon(R.drawable.ic_action_add)
-            mBookLayout.setButtonText("Añadir a mi Wishlist")
+            mBookLayout.setButtonText(getString(R.string.add_to_wishlist))
         }
     }
 }

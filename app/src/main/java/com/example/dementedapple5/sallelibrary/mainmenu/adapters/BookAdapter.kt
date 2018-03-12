@@ -13,10 +13,6 @@ import com.example.dementedapple5.sallelibrary.mainmenu.asyncTasks.SetBookImages
 import com.example.dementedapple5.sallelibrary.model.Book
 import kotlinx.android.synthetic.main.book_item.view.*
 
-
-/**
- * Created by dementedapple5 on 22/02/2018.
- */
 class BookAdapter(val mBooks: ArrayList<Book>): RecyclerView.Adapter<BookAdapter.Companion.MyBookViewHolder>() {
 
     companion object {

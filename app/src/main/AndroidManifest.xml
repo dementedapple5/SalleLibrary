@@ -13,7 +13,8 @@
         <activity
             android:name=".mainmenu.TabbedActivity"
             android:label="@string/title_activity_tabbed"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:configChanges="orientation|screenSize"/>
         <activity
             android:name=".splashscreen.activities.SplashScreenActivity"
             android:theme="@style/SplashTheme">
@@ -23,8 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".bookpage.activities.BookPage"></activity>
-        <activity android:name=".mainmenu.BooksFromSearchActivity"></activity>
+        <activity android:name=".bookpage.activities.BookPage"/>
+        <activity android:name=".mainmenu.BooksFromSearchActivity"/>
     </application>
 
 </manifest>

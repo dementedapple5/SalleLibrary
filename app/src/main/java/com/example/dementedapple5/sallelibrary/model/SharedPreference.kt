@@ -2,7 +2,6 @@ package com.example.dementedapple5.sallelibrary.model
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.util.Log
 import com.google.gson.Gson
 
 class SharedPreference() {
@@ -19,8 +18,6 @@ class SharedPreference() {
 
         val gson = Gson()
         val jsonWishlist: String = gson.toJson(booksInWishlist)
-
-        Log.d("EL OTRO ARRAY", booksInWishlist.count().toString())
         editor.putString(WISHLIST, jsonWishlist)
 
         editor.apply()
@@ -50,10 +47,10 @@ class SharedPreference() {
                 }
                 counter++
             }
-        }
 
-        booksInWishlist?.removeAt(counter)
-        persistentWishlist(context, booksInWishlist!!)
+            booksInWishlist.removeAt(counter)
+            persistentWishlist(context, booksInWishlist)
+        }
     }
 
     fun getBooksInWishlist(context: Context): ArrayList<Book>? {

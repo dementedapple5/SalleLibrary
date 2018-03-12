@@ -36,8 +36,6 @@ class NetworkUtils {
 
                     val requestUrl = URL(requestUri.toString())
 
-                    Log.d("URLCONN:", requestUrl.toString())
-
                     urlConnection = requestUrl.openConnection() as HttpURLConnection
                     urlConnection.requestMethod = "GET"
                     urlConnection.connect()
@@ -129,8 +127,6 @@ class NetworkUtils {
                     }
                 }
             }
-
-            Log.d("HOLA", bookJSONString)
             return bookJSONString
         }
 

@@ -83,9 +83,11 @@ class BookPage : AppCompatActivity(), BookLayout.OnAddedToWishlistListener {
     private fun checkIfBookIsInWishlist(book: Book): Boolean {
         val booksInWishlist: ArrayList<Book>? = sharedPreference.getBooksInWishlist(this)
 
-        for (item in booksInWishlist!!) {
-            if (item.title.toLowerCase() == book.title.toLowerCase()) {
-                return true
+        if (booksInWishlist != null) {
+            for (item in booksInWishlist) {
+                if (item.title.toLowerCase() == book.title.toLowerCase()) {
+                    return true
+                }
             }
         }
 

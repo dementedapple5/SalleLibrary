@@ -230,6 +230,7 @@ class TabbedActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<String
         val intent = Intent(this, BooksFromSearchActivity::class.java)
         val bundle = Bundle()
         bundle.putSerializable("mResultArray", mBookArray)
+        bundle.putString("query", mSearchView.query.toString())
         intent.putExtras(bundle)
         startActivity(intent)
     }

@@ -9,7 +9,7 @@
     <dimen name="subtitle">24sp</dimen>
     <dimen name="card_height">240dp</dimen>
     <dimen name="items_margin">5dp</dimen>
-    <dimen name="def_margin_left">12dp</dimen>
+    <dimen name="def_margin_left">8dp</dimen>
     <dimen name="title_size">16sp</dimen>
     <dimen name="book_width">100dp</dimen>
     <dimen name="img_height">130dp</dimen>

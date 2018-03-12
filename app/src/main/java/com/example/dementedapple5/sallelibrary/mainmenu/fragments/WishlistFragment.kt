@@ -59,7 +59,7 @@ class WishlistFragment : Fragment() {
 
         wishlist_recycler.setHasFixedSize(true)
 
-        val mLayoutManager = GridLayoutManager(activity.applicationContext, 2, GridLayoutManager.VERTICAL, false)
+        val mLayoutManager = GridLayoutManager(activity.applicationContext, 3, GridLayoutManager.VERTICAL, false)
         wishlist_recycler.layoutManager = mLayoutManager
     }
 

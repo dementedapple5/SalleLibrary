@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "187607982995",
+    "firebase_url": "https://sallelibrary-e2f6b.firebaseio.com",
+    "project_id": "sallelibrary-e2f6b",
+    "storage_bucket": "sallelibrary-e2f6b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187607982995:android:3807cd6d5adf62c5",
+        "android_client_info": {
+          "package_name": "com.example.dementedapple5.sallelibrary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "187607982995-8mf2difrm8pouavpe4lq2lb07hfiidcd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dementedapple5.sallelibrary",
+            "certificate_hash": "6ae08fdd24bdf1e9b08fb5df86cdcbae25f6e19f"
+          }
+        },
+        {
+          "client_id": "187607982995-ttd5r6jcuvnudcggg1c7l9iusksc8284.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7JYjyaW7zkIRxHuHXEXTUPOOjrUDdB1g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "187607982995-ttd5r6jcuvnudcggg1c7l9iusksc8284.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

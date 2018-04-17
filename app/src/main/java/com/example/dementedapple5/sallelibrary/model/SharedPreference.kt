@@ -14,22 +14,22 @@ import com.google.gson.Gson
 class SharedPreference() {
     companion object {
         /**
-         * [PREFS_NAME] Variable estática para identificar las [SharedPreferences] a la hora de recuperarlas.
+         * Variable estática para identificar las [SharedPreferences] a la hora de recuperarlas.
          */
         val PREFS_NAME = "Salle_Library"
 
         /**
-         * [WISHLIST] Variable estática para identificar el objeto que se introduce en el [SharedPreferences.Editor].
+         * Variable estática para identificar el objeto que se introduce en el [SharedPreferences.Editor].
          */
         val WISHLIST = "Book_Wishlist"
     }
 
     /**
-     * Aplica los cambios en la lista de [Book] en el [SharedPreferences.Editor].
+     * Aplica los cambios en la [ArrayList] de [Book] en el [SharedPreferences.Editor].
      *
      * [context] Contexto de la actividad.
-     * [booksInWishlist] booksInWishlist Lista de [Book] con cambios.
-     * @see Gson fdsafsa
+     * [booksInWishlist] [ArrayList] de [Book] con cambios.
+     * @see [Gson]
      */
     fun persistentWishlist(context: Context, booksInWishlist: List<Book>) {
         val settings: SharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
@@ -45,7 +45,7 @@ class SharedPreference() {
     }
 
     /**
-     * Añade un [Book] a la lista.
+     * Añade un [Book] a la [ArrayList].
      *
      * [context] Contexto de la actividad.
      * [book] Objeto [Book] a añadir.
@@ -64,7 +64,7 @@ class SharedPreference() {
     }
 
     /**
-     * Elimina un [Book] a la lista.
+     * Elimina un [Book] de la [ArrayList].
      *
      * [context] Contexto de la actividad.
      * [book] Objeto [Book] a eliminar.
@@ -87,10 +87,10 @@ class SharedPreference() {
     }
 
     /**
-     * Permite ver todos los [Book] almacenados en la lista.
+     * Permite ver todos los [Book] almacenados en la [ArrayList].
      *
      * [context] Contexto de la actividad.
-     * @return Lista de [Book]
+     * @return [ArrayList] de [Book]
      */
     fun getBooksInWishlist(context: Context): ArrayList<Book>? {
         val settings: SharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)

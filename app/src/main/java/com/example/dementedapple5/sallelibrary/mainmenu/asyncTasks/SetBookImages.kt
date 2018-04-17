@@ -1,12 +1,12 @@
 package com.example.dementedapple5.sallelibrary.mainmenu.asyncTasks
 
 import android.graphics.Bitmap
-import android.os.AsyncTask
 import android.graphics.BitmapFactory
+import android.os.AsyncTask
 import android.util.Log
 import android.widget.ImageView
 
-class SetBookImages(val bookImg: ImageView) : AsyncTask<String, Void, Bitmap?>(){
+class SetBookImages(val bookImg: ImageView) : AsyncTask<String, Void, Bitmap?>() {
 
     override fun doInBackground(vararg p0: String?): Bitmap? {
         val urldisplay = p0[0]

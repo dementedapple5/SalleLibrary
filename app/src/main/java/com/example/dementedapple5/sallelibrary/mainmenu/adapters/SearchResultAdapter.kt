@@ -13,14 +13,14 @@ import com.example.dementedapple5.sallelibrary.mainmenu.asyncTasks.SetBookImages
 import com.example.dementedapple5.sallelibrary.model.Book
 import kotlinx.android.synthetic.main.search_result_item.view.*
 
-class SearchResultAdapter(val mResults: ArrayList<Book>): RecyclerView.Adapter<SearchResultAdapter.Companion.MyResultViewHolder>() {
+class SearchResultAdapter(val mResults: ArrayList<Book>) : RecyclerView.Adapter<SearchResultAdapter.Companion.MyResultViewHolder>() {
 
     companion object {
-        class MyResultViewHolder(val mResultConst: ConstraintLayout): RecyclerView.ViewHolder(mResultConst)
+        class MyResultViewHolder(val mResultConst: ConstraintLayout) : RecyclerView.ViewHolder(mResultConst)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): MyResultViewHolder {
-        val v: View = LayoutInflater.from(parent!!.context).inflate(R.layout.search_result_item, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyResultViewHolder {
+        val v: View = LayoutInflater.from(parent.context).inflate(R.layout.search_result_item, parent, false)
         return MyResultViewHolder(v as ConstraintLayout)
     }
 

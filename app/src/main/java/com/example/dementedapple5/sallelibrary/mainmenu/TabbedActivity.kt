@@ -149,7 +149,7 @@ class TabbedActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<String
         return SearchBook(this, args!!.getString("queryString"))
     }
 
-    override fun onLoadFinished(loader: Loader<String>?, data: String?) {
+    override fun onLoadFinished(loader: Loader<String>, data: String?) {
         mBookArray.clear()
         var book: Book
 
@@ -173,12 +173,12 @@ class TabbedActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<String
 
             try {
                 // Get title
-                if (volumeInfo.has("title")){
+                if (volumeInfo.has("title")) {
                     title = volumeInfo.getString("title")
                 }
 
                 // Get authors
-                if (volumeInfo.has("authors")){
+                if (volumeInfo.has("authors")) {
                     val authors = volumeInfo.getJSONArray("authors")
                     author = authors.getString(0)
                 }
@@ -190,7 +190,7 @@ class TabbedActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<String
                 }
 
                 // Get numPages
-                if (volumeInfo.has("pageCount")){
+                if (volumeInfo.has("pageCount")) {
                     numPages = volumeInfo.getInt("pageCount")
                 }
 
@@ -211,13 +211,13 @@ class TabbedActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<String
                 }
 
                 // Get Description
-                if (volumeInfo.has("description")){
+                if (volumeInfo.has("description")) {
                     description = volumeInfo.getString("description")
                 }
 
             } catch (e: Exception) {
                 e.printStackTrace()
-            }catch (e1: JSONException) {
+            } catch (e1: JSONException) {
                 e1.printStackTrace()
             }
 
@@ -238,6 +238,6 @@ class TabbedActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<String
         supportLoaderManager.destroyLoader(0)
     }
 
-    override fun onLoaderReset(loader: Loader<String>?) {}
+    override fun onLoaderReset(loader: Loader<String>) {}
 
 }

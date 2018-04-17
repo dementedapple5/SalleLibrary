@@ -1,7 +1,6 @@
 package com.example.dementedapple5.sallelibrary.mainmenu.utils
 
 import android.net.Uri
-import android.util.Log
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStream
@@ -121,7 +120,7 @@ class NetworkUtils {
                 val buffer = StringBuffer()
 
                 if (inputStream == null) {
-                    return  null
+                    return null
                 }
 
                 reader = BufferedReader(InputStreamReader(inputStream))

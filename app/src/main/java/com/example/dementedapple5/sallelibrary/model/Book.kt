@@ -18,7 +18,7 @@ import java.io.Serializable
  * @property description Descripción.
  * @property img Imagen de portada.
  */
-class Book(): Serializable {
+class Book() : Serializable {
     var title: String = ""
     var publisher: String = ""
     var genre: String = ""
@@ -48,7 +48,6 @@ class Book(): Serializable {
     override fun toString(): String {
         return "Book(title='$title', author='$author')"
     }
-
 
 
 }

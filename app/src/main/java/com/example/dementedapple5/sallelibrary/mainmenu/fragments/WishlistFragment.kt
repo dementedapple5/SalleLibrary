@@ -20,8 +20,8 @@ class WishlistFragment : Fragment() {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater!!.inflate(R.layout.fragment_wishlist, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_wishlist, container, false)
     }
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
@@ -29,12 +29,12 @@ class WishlistFragment : Fragment() {
 
         if (isVisibleToUser) {
             val sharedPreference = SharedPreference()
-            val booksInWishlist: ArrayList<Book>? = sharedPreference.getBooksInWishlist(activity)
+            val booksInWishlist: ArrayList<Book>? = sharedPreference.getBooksInWishlist(activity!!)
 
             if (booksInWishlist == null || booksInWishlist.count() == 0) {
-                val noBooksMessage = Snackbar.make(activity.findViewById(R.id.gridlayout), "Aún no tienes ningún libro añadido a tu Wishlist", Snackbar.LENGTH_INDEFINITE)
+                val noBooksMessage = Snackbar.make(activity!!.findViewById(R.id.gridlayout), "Aún no tienes ningún libro añadido a tu Wishlist", Snackbar.LENGTH_INDEFINITE)
 
-                noBooksMessage.setAction(R.string.snackbar_ignore, object: View.OnClickListener {
+                noBooksMessage.setAction(R.string.snackbar_ignore, object : View.OnClickListener {
                     override fun onClick(view: View?) {
                         noBooksMessage.dismiss()
                     }
@@ -48,7 +48,7 @@ class WishlistFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         val sharedPreference = SharedPreference()
-        val booksInWishlist: ArrayList<Book>? = sharedPreference.getBooksInWishlist(activity)
+        val booksInWishlist: ArrayList<Book>? = sharedPreference.getBooksInWishlist(activity!!)
 
         if (booksInWishlist != null) {
             val mAdapter = FavBookAdapter(booksInWishlist)
@@ -61,7 +61,7 @@ class WishlistFragment : Fragment() {
 
         wishlist_recycler.setHasFixedSize(true)
 
-        val mLayoutManager = GridLayoutManager(activity.applicationContext, 3, GridLayoutManager.VERTICAL, false)
+        val mLayoutManager = GridLayoutManager(activity!!.applicationContext, 3, GridLayoutManager.VERTICAL, false)
         wishlist_recycler.layoutManager = mLayoutManager
     }
 

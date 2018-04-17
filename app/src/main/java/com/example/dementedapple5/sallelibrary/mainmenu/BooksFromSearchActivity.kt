@@ -29,7 +29,7 @@ class BooksFromSearchActivity : AppCompatActivity() {
 
         mRecyclerBookSearchResult.setHasFixedSize(true)
 
-        val mLayoutManager = GridLayoutManager(this, 3,GridLayoutManager.VERTICAL, false)
+        val mLayoutManager = GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false)
 
         mRecyclerBookSearchResult.layoutManager = mLayoutManager
 

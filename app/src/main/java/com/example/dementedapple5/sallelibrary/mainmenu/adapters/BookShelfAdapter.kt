@@ -10,18 +10,15 @@ import com.example.dementedapple5.sallelibrary.R
 import com.example.dementedapple5.sallelibrary.model.BookShelf
 import kotlinx.android.synthetic.main.book_shelf_item.view.*
 
-/**
- * Created by dementedapple5 on 22/02/2018.
- */
-class BookShelfAdapter(val mShelfArray: ArrayList<BookShelf>): RecyclerView.Adapter<BookShelfAdapter.Companion.MyViewHolder>() {
+class BookShelfAdapter(val mShelfArray: ArrayList<BookShelf>) : RecyclerView.Adapter<BookShelfAdapter.Companion.MyViewHolder>() {
 
 
     companion object {
         class MyViewHolder(var mCardView: CardView) : RecyclerView.ViewHolder(mCardView)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): MyViewHolder {
-        val v: View = LayoutInflater.from(parent!!.context).inflate(R.layout.book_shelf_item, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        val v: View = LayoutInflater.from(parent.context).inflate(R.layout.book_shelf_item, parent, false)
         return MyViewHolder(v as CardView)
     }
 
@@ -29,8 +26,8 @@ class BookShelfAdapter(val mShelfArray: ArrayList<BookShelf>): RecyclerView.Adap
         return mShelfArray.size
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder?, position: Int) {
-        holder!!.mCardView.mTextView.text = mShelfArray[position].title
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        holder.mCardView.mTextView.text = mShelfArray[position].title
         holder.mCardView.mBookRecycle.adapter = BookAdapter(mShelfArray[position].books)
         holder.mCardView.mBookRecycle.setHasFixedSize(true)
         holder.mCardView.mBookRecycle.setItemViewCacheSize(20)

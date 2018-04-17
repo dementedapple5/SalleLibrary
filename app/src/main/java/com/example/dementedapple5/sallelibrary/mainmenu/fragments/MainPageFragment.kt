@@ -16,8 +16,8 @@ class MainPageFragment : Fragment() {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater!!.inflate(R.layout.fragment_main_page, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_main_page, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -30,15 +30,13 @@ class MainPageFragment : Fragment() {
         bookCategories.add("Thriller")
         bookCategories.add("Comedy")
 
-        FetchBook(recycler, activity, bookCategories).execute(bookCategories)
+        FetchBook(recycler, activity!!, bookCategories).execute(bookCategories)
 
     }
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
     }
-
-
 
 
 }

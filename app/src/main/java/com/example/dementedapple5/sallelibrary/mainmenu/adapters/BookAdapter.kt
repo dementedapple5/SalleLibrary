@@ -13,15 +13,15 @@ import com.example.dementedapple5.sallelibrary.mainmenu.asyncTasks.SetBookImages
 import com.example.dementedapple5.sallelibrary.model.Book
 import kotlinx.android.synthetic.main.book_item.view.*
 
-class BookAdapter(val mBooks: ArrayList<Book>): RecyclerView.Adapter<BookAdapter.Companion.MyBookViewHolder>() {
+class BookAdapter(val mBooks: ArrayList<Book>) : RecyclerView.Adapter<BookAdapter.Companion.MyBookViewHolder>() {
 
     companion object {
-        class MyBookViewHolder(val mConstraint: ConstraintLayout): RecyclerView.ViewHolder(mConstraint)
+        class MyBookViewHolder(val mConstraint: ConstraintLayout) : RecyclerView.ViewHolder(mConstraint)
     }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): MyBookViewHolder {
-        val v: View = LayoutInflater.from(parent!!.context).inflate(R.layout.book_item, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyBookViewHolder {
+        val v: View = LayoutInflater.from(parent.context).inflate(R.layout.book_item, parent, false)
         return MyBookViewHolder(v as ConstraintLayout)
     }
 

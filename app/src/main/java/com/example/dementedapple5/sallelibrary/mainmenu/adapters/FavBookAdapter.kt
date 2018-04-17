@@ -13,14 +13,14 @@ import com.example.dementedapple5.sallelibrary.mainmenu.asyncTasks.SetBookImages
 import com.example.dementedapple5.sallelibrary.model.Book
 import kotlinx.android.synthetic.main.fav_book_item.view.*
 
-class FavBookAdapter(val mFavBooks: ArrayList<Book>): RecyclerView.Adapter<FavBookAdapter.Companion.MyFavBookViewHolder>() {
+class FavBookAdapter(val mFavBooks: ArrayList<Book>) : RecyclerView.Adapter<FavBookAdapter.Companion.MyFavBookViewHolder>() {
 
     companion object {
-        class MyFavBookViewHolder(val mCardView: CardView): RecyclerView.ViewHolder(mCardView)
+        class MyFavBookViewHolder(val mCardView: CardView) : RecyclerView.ViewHolder(mCardView)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): MyFavBookViewHolder {
-        val v: View = LayoutInflater.from(parent!!.context).inflate(R.layout.fav_book_item, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyFavBookViewHolder {
+        val v: View = LayoutInflater.from(parent.context).inflate(R.layout.fav_book_item, parent, false)
         return MyFavBookViewHolder(v as CardView)
     }
 

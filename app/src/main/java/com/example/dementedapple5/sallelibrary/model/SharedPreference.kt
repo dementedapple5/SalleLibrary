@@ -10,18 +10,16 @@ import com.google.gson.Gson
  * Esta clase consiste en manipular y persistir datos en las Shared Preferences del usuario.
  *
  * @constructor Crea una instancia vacía de SharedPreference.
- * @author Daniel de la Lastra
- * @author Javier Torrus
  */
 class SharedPreference() {
     companion object {
         /**
-         * @param PREFS_NAME Variable estática para identificar las [SharedPreferences] a la hora de recuperarlas.
+         * [PREFS_NAME] Variable estática para identificar las [SharedPreferences] a la hora de recuperarlas.
          */
         val PREFS_NAME = "Salle_Library"
 
         /**
-         * @param WISHLIST Variable estática para identificar el objeto que se introduce en el [SharedPreferences.Editor].
+         * [WISHLIST] Variable estática para identificar el objeto que se introduce en el [SharedPreferences.Editor].
          */
         val WISHLIST = "Book_Wishlist"
     }
@@ -31,7 +29,7 @@ class SharedPreference() {
      *
      * [context] Contexto de la actividad.
      * [booksInWishlist] booksInWishlist Lista de [Book] con cambios.
-     * @see Gson
+     * @see Gson fdsafsa
      */
     fun persistentWishlist(context: Context, booksInWishlist: List<Book>) {
         val settings: SharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
@@ -49,8 +47,8 @@ class SharedPreference() {
     /**
      * Añade un [Book] a la lista.
      *
-     * @param context Contexto de la actividad.
-     * @param book Objeto [Book] a añadir.
+     * [context] Contexto de la actividad.
+     * [book] Objeto [Book] a añadir.
      */
     fun addToWishlist(context: Context, book: Book) {
         var booksInWishlist: ArrayList<Book>? = getBooksInWishlist(context)
@@ -68,8 +66,8 @@ class SharedPreference() {
     /**
      * Elimina un [Book] a la lista.
      *
-     * @param context Contexto de la actividad.
-     * @param book Objeto [Book] a eliminar.
+     * [context] Contexto de la actividad.
+     * [book] Objeto [Book] a eliminar.
      */
     fun removeFromWishlist(context: Context, book: Book) {
         val booksInWishlist: ArrayList<Book>? = getBooksInWishlist(context)
@@ -91,7 +89,7 @@ class SharedPreference() {
     /**
      * Permite ver todos los [Book] almacenados en la lista.
      *
-     * @param context Contexto de la actividad.
+     * [context] Contexto de la actividad.
      * @return Lista de [Book]
      */
     fun getBooksInWishlist(context: Context): ArrayList<Book>? {

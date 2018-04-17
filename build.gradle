@@ -1,14 +1,16 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.2.30'
+    ext.kotlin_version = '1.2.31'
+    ext.dokka_version = '0.9.16'
+
     repositories {
         google()
         jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.1'
-        classpath 'org.jetbrains.dokka:dokka-android-gradle-plugin:0.9.13'
+        classpath "org.jetbrains.dokka:dokka-android-gradle-plugin:$dokka_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.google.gms:google-services:3.2.0'
 
@@ -17,10 +19,22 @@ buildscript {
     }
 }
 
+apply plugin: 'org.jetbrains.dokka-android'
+
 allprojects {
     repositories {
         google()
         jcenter()
+    }
+}
+
+dokka {
+    outputFormat = 'javadoc'
+    outputDirectory = "${projectDir}/dokka-generated"
+
+    externalDocumentationLink {
+        url = new URL ("http://reactivex.io/RxJava/1.x/javadoc")
+        packageListUrl = new URL ("http://reactivex.io/RxJava/1.x/javadoc/package-list")
     }
 }
 

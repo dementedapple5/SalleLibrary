@@ -29,8 +29,8 @@ class SharedPreference() {
     /**
      * Aplica los cambios en la lista de [Book] en el [SharedPreferences.Editor].
      *
-     * @param context Contexto de la actividad.
-     * @param booksInWishlist Lista de [Book] con cambios.
+     * [context] Contexto de la actividad.
+     * [booksInWishlist] booksInWishlist Lista de [Book] con cambios.
      * @see Gson
      */
     fun persistentWishlist(context: Context, booksInWishlist: List<Book>) {

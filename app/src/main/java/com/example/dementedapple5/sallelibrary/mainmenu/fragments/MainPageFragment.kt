@@ -6,11 +6,18 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import com.example.dementedapple5.sallelibrary.R
 import com.example.dementedapple5.sallelibrary.mainmenu.asyncTasks.FetchBook
+import com.example.dementedapple5.sallelibrary.model.Book
 import kotlinx.android.synthetic.main.fragment_main_page.*
 
+/**
+ * Muestra de los [Book] listados por género.
+ *
+ * Se encarga de mostrar un [Fragment] donde se puede visualizar el layout principal con un RecyclerView de [Book] dentro de CardViews diferenciadas por género.
+ *
+ * @see [FetchBook]
+ */
 class MainPageFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

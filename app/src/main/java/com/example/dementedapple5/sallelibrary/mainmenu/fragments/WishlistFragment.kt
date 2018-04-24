@@ -15,6 +15,13 @@ import com.example.dementedapple5.sallelibrary.model.Book
 import com.example.dementedapple5.sallelibrary.model.SharedPreference
 import kotlinx.android.synthetic.main.fragment_wishlist.*
 
+/**
+ * Muestra de los [Book] favoritos.
+ *
+ * Se encarga de mostrar un [Fragment] donde se puede visualizar un listado de [Book] que el usuario ha seleccionado como favoritos.
+ *
+ * @see [SharedPreference]
+ */
 class WishlistFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

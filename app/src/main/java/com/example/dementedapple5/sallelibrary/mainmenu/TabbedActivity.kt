@@ -36,9 +36,24 @@ import org.json.JSONObject
  * @see [LoaderManager]
  */
 class TabbedActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<String> {
+    /**
+     * Listado de [Book] que se muestran en la pantalla principal.
+     */
     private var mBookArray: ArrayList<Book> = ArrayList<Book>()
+
+    /**
+     * Adaptador para cada sección del Fragment.
+     */
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
+
+    /**
+     * Referencia al Authentication de Firebase para recoger datos del usuario.
+     */
     private lateinit var mAuth: FirebaseAuth
+
+    /**
+     * Barra de búsqueda en la parte superior de la pantalla.
+     */
     private lateinit var mSearchView: SearchView
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -19,7 +19,17 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_login.*
-
+/**
+ * Pantalla de inicio de sesión.
+ *
+ * Se encarga de mostrar la pantalla donde el usuario puede iniciar sesión con Google.
+ *
+ * @see [AppCompatActivity]
+ * @see [View.OnClickListener]
+ * @see [OnCompleteListener]
+ * @see [Bundle]
+ * @see [GoogleSignInOptions]
+ */
 class LoginActivity : AppCompatActivity(), View.OnClickListener, OnCompleteListener<AuthResult> {
     private lateinit var mGoogleSignInClient: GoogleSignInClient
     private lateinit var mAuth: FirebaseAuth
@@ -64,11 +74,23 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, OnCompleteListe
         }
     }
 
+    /**
+     * Inicia la operación de inicio de sesión con Google, iniciando un [GoogleSignInClient.getSignInIntent].
+     *
+     * @see [startActivityForResult]
+     */
     private fun signIn() {
         val intent: Intent = mGoogleSignInClient.signInIntent
         startActivityForResult(intent, RCODE_SIGN_IN)
     }
 
+    /**
+     * Se encarga de comprobar el estado de la tarea a la hora del [startActivityForResult] en el inicio de sesión y devolver un resultado dependiendo de si ha habido éxito o no.
+     *
+     * [completedTask] Tarea que se ejecuta al iniciar sesión.
+     *
+     * @see [GoogleSignInAccount]
+     */
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
         try {
             val account: GoogleSignInAccount = completedTask.getResult(ApiException::class.java)
@@ -78,12 +100,20 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, OnCompleteListe
         }
     }
 
+    /**
+     * Se encarga de iniciar sesión completamente y crear el usuario en Firebase con las credenciales recogidas de [GoogleAuthProvider.getCredential].
+     *
+     * [accountSigningIn] Cuenta que escoge el usuario para iniciar sesión con Google.
+     */
     private fun firebaseAuthWithGoogle(accountSigningIn: GoogleSignInAccount) {
         val accountCredentials: AuthCredential = GoogleAuthProvider.getCredential(accountSigningIn.idToken, null)
 
         mAuth.signInWithCredential(accountCredentials).addOnCompleteListener(this)
     }
 
+    /**
+     * Se encarga de pasar a la [TabbedActivity] y finalizar la [LoginActivity]
+     */
     private fun updateUI() {
         val intent = Intent(this, TabbedActivity::class.java)
         startActivity(intent)

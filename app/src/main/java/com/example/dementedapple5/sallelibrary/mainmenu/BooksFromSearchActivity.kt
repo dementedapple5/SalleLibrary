@@ -9,8 +9,18 @@ import com.example.dementedapple5.sallelibrary.mainmenu.adapters.SearchResultAda
 import com.example.dementedapple5.sallelibrary.model.Book
 import kotlinx.android.synthetic.main.activity_books_from_search.*
 
+/**
+ * Pantalla de resultado de la búsqueda de libros.
+ *
+ * Se encarga de mostrar un listado de libros que concuerdan con los parámetros que el usario introduce en la barra de búsqueda.
+ *
+ * @see [AppCompatActivity]
+ * @see [onOptionsItemSelected]
+ */
 class BooksFromSearchActivity : AppCompatActivity() {
-
+    /**
+     * Lista de [Book] donde se almacenarán los datos a mostrar.
+     */
     var books: ArrayList<Book> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {

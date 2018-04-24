@@ -27,7 +27,14 @@ import kotlinx.android.synthetic.main.toolbar.*
 import org.json.JSONException
 import org.json.JSONObject
 
-
+/**
+ * Pantalla principal de la aplicación.
+ *
+ * Se encarga de mostrar una pantalla con dos pestañas que corresponden a diferentes Fragments: en uno se muestra una selección de [Book] por géneros y en otro se muestra un listado de [Book] favoritos.
+ *
+ * @see [AppCompatActivity]
+ * @see [LoaderManager]
+ */
 class TabbedActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<String> {
     private var mBookArray: ArrayList<Book> = ArrayList<Book>()
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
@@ -92,6 +99,9 @@ class TabbedActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<String
         return super.onOptionsItemSelected(item)
     }
 
+    /**
+     * Se encarga de mostrar un [AlertDialog] de confirmación cuando el usuario presiona en el botón de cierre de sesión.
+     */
     private fun confirmDialog() {
         AlertDialog.Builder(this)
                 .setTitle(R.string.action_log_out)
@@ -105,6 +115,14 @@ class TabbedActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<String
                 .setNegativeButton(R.string.logout_cancel, null).show()
     }
 
+    /**
+     * Se encarga de realizar una animación circular en la barra de búsqueda cuando el usuario presiona en el icono.
+     *
+     * [viewId] Identificador de la vista donde se quiere hacer la animación.
+     * [startingPos] Posición inicial de la animación.
+     * [hasOverflow] Indica si el icono se tapa durante la animación para cambiar los puntos de origen.
+     * [isShow] Indica si la barra de búsqueda tras la animación es visible para realizar una animación de apertura o cierre.
+     */
     private fun circleReveal(viewId: Int, startingPos: Int, hasOverflow: Boolean, isShow: Boolean) {
         val view = findViewById<View>(viewId)
         var width = view.width

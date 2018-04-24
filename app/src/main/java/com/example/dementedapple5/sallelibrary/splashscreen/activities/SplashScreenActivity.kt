@@ -13,6 +13,9 @@ import com.example.dementedapple5.sallelibrary.userauth.activities.LoginActivity
  * @see [Bundle]
  * @see [startActivity]
  * @see [finish]
+ *
+ * @author Daniel de la Lastra
+ * @author Javier Torrus
  */
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

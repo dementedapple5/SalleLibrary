@@ -13,6 +13,8 @@ import java.net.URL
  *
  * Esta clase consiste dispone de una serie de funcionalidades para realizar requests a la API de Google Books.
  *
+ * @author Daniel de la Lastra
+ * @author Javier Torrus
  */
 class NetworkUtils {
     companion object {

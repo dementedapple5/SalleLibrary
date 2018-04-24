@@ -10,6 +10,9 @@ import com.google.gson.Gson
  * Esta clase consiste en manipular y persistir datos en las Shared Preferences del usuario.
  *
  * @constructor Crea una instancia vacía de SharedPreference.
+ *
+ * @author Daniel de la Lastra
+ * @author Javier Torrus
  */
 class SharedPreference() {
     companion object {

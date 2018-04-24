@@ -13,12 +13,31 @@ import com.example.dementedapple5.sallelibrary.mainmenu.asyncTasks.SetBookImages
 import com.example.dementedapple5.sallelibrary.model.Book
 import kotlinx.android.synthetic.main.book_item.view.*
 
+/**
+ * Adaptador para [Book].
+ *
+ * Esta clase consiste en generar un Adaptador para poder mostrar los datos en pantalla de un [ArrayList] de [Book].
+ *
+ * @constructor Crea una instancia de [BookAdapter] con una serie de atributos
+ * @property mBooks [ArrayList] de [Book].
+ *
+ * @see [MyBookViewHolder]
+ *
+ * @author Daniel de la Lastra
+ * @author Javier Torrus
+ */
 class BookAdapter(val mBooks: ArrayList<Book>) : RecyclerView.Adapter<BookAdapter.Companion.MyBookViewHolder>() {
 
     companion object {
+        /**
+         * Intermediario entre los datos recogidos y la vista.
+         *
+         * Esta clase consiste en mantener los datos en la vista sin tener que recargarlos y perder rendimiento en la renderización.
+         *
+         * @property mConstraint Tipo de layout utilizado en la vista.
+         */
         class MyBookViewHolder(val mConstraint: ConstraintLayout) : RecyclerView.ViewHolder(mConstraint)
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyBookViewHolder {
         val v: View = LayoutInflater.from(parent.context).inflate(R.layout.book_item, parent, false)

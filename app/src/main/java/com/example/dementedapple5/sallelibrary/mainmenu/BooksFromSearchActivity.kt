@@ -16,6 +16,9 @@ import kotlinx.android.synthetic.main.activity_books_from_search.*
  *
  * @see [AppCompatActivity]
  * @see [onOptionsItemSelected]
+ *
+ * @author Daniel de la Lastra
+ * @author Javier Torrus
  */
 class BooksFromSearchActivity : AppCompatActivity() {
     /**

@@ -7,11 +7,14 @@ import com.example.dementedapple5.sallelibrary.mainmenu.utils.NetworkUtils
 /**
  * Tarea asíncrona para la búsqueda de libros.
  *
- * Esta clase consiste en realizar una tarea en background que se encargará de realizar una request a la API de Google Boks cuando el usuario escriba un libro para buscar.
+ * Esta clase consiste en realizar una tarea en background que se encargará de realizar una request a la API de Google Books cuando el usuario escriba un libro para buscar.
  *
  * @constructor Crea una instancia de [SearchBook] con una serie de atributos
  * @property context Contexto de la actividad.
  * @property queryString Query adjunta con los parámetros
+ *
+ * @author Daniel de la Lastra
+ * @author Javier Torrus
  */
 class SearchBook(context: Context, var queryString: String) : AsyncTaskLoader<String>(context) {
 

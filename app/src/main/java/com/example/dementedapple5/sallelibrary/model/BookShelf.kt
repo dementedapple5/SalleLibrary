@@ -8,5 +8,8 @@ package com.example.dementedapple5.sallelibrary.model
  * @constructor Crea una instancia con los siguientes parámetros.
  * @property title Título de la categoría de [Book]
  * @property books Conjunto de [Book] por cada categoría
+ *
+ * @author Daniel de la Lastra
+ * @author Javier Torrus
  */
 data class BookShelf(val title: String, val books: ArrayList<Book>)

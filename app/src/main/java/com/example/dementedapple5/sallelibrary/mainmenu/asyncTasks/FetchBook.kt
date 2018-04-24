@@ -12,6 +12,19 @@ import com.example.dementedapple5.sallelibrary.model.BookShelf
 import org.json.JSONException
 import org.json.JSONObject
 
+/**
+ * Tarea asíncrona para la recuperación de [Book].
+ *
+ * Esta clase consiste en realizar una tarea en background que se encargará de realizar una request a la API de Google Books para recoger todos los libros dados unos parámetros.
+ *
+ * @constructor Crea una instancia de [FetchBook] con una serie de atributos
+ * @property recyclerView [RecyclerView] donde se asignan los [BookShelfAdapter].
+ * @property activity [FragmentActivity] donde se mostrarán los [Book].
+ * @property bookCategories Listado de categorías que servirán como título en cada [BookShelf].
+ *
+ * @author Daniel de la Lastra
+ * @author Javier Torrus
+ */
 class FetchBook(val recyclerView: RecyclerView, val activity: FragmentActivity, val bookCategories: ArrayList<String>) : AsyncTask<ArrayList<String>, Void, ArrayList<String>>() {
     override fun doInBackground(vararg p0: ArrayList<String>?): ArrayList<String> {
         return NetworkUtils.getBookInfo(p0[0]!!)!!

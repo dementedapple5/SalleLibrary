@@ -16,7 +16,11 @@ import kotlinx.android.synthetic.main.fragment_main_page.*
  *
  * Se encarga de mostrar un [Fragment] donde se puede visualizar el layout principal con un RecyclerView de [Book] dentro de CardViews diferenciadas por género.
  *
+ * @constructor Crea una instancia de [MainPageFragment]
  * @see [FetchBook]
+ *
+ * @author Daniel de la Lastra
+ * @author Javier Torrus
  */
 class MainPageFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {

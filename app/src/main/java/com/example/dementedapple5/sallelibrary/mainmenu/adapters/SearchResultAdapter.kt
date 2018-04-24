@@ -13,9 +13,29 @@ import com.example.dementedapple5.sallelibrary.mainmenu.asyncTasks.SetBookImages
 import com.example.dementedapple5.sallelibrary.model.Book
 import kotlinx.android.synthetic.main.search_result_item.view.*
 
+/**
+ * Adaptador para [Book].
+ *
+ * Esta clase consiste en generar un Adaptador para poder mostrar los datos en pantalla de un [ArrayList] de [Book] resultantes tras una búsqueda realizada por el usuario.
+ *
+ * @constructor Crea una instancia de [SearchResultAdapter] con una serie de atributos
+ * @property mResults [ArrayList] de [Book].
+ *
+ * @see [MyResultViewHolder]
+ *
+ * @author Daniel de la Lastra
+ * @author Javier Torrus
+ */
 class SearchResultAdapter(val mResults: ArrayList<Book>) : RecyclerView.Adapter<SearchResultAdapter.Companion.MyResultViewHolder>() {
 
     companion object {
+        /**
+         * Intermediario entre los datos recogidos y la vista.
+         *
+         * Esta clase consiste en mantener los datos en la vista sin tener que recargarlos y perder rendimiento en la renderización.
+         *
+         * @property mResultConst Tipo de layout utilizado en la vista.
+         */
         class MyResultViewHolder(val mResultConst: ConstraintLayout) : RecyclerView.ViewHolder(mResultConst)
     }
 

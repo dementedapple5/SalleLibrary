@@ -54,7 +54,6 @@ class BookLayout : ConstraintLayout, View.OnClickListener {
 
         val typedArray: TypedArray = context.obtainStyledAttributes(attrs, R.styleable.BookLayout, defStyle, 0)
 
-//        setImageOfBook(typedArray.getResourceId(R.styleable.BookLayout_imageOfBook, 0))
         setBookTitle(typedArray.getString(R.styleable.BookLayout_bookTitle))
         setBookAuthor(typedArray.getString(R.styleable.BookLayout_bookAuthor))
         setBookPublisher(typedArray.getString(R.styleable.BookLayout_bookPublisher))
@@ -67,14 +66,6 @@ class BookLayout : ConstraintLayout, View.OnClickListener {
         button_add_to_wishlist.setOnClickListener(this)
 
         typedArray.recycle()
-    }
-
-    fun setImageOfBook(resId: Int) {
-        if (checkInts(resId)) {
-            book_image.setImageResource(resId)
-            invalidate()
-            requestLayout()
-        }
     }
 
     fun getImageOfBook(): ImageView {

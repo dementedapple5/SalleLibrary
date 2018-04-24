@@ -13,9 +13,29 @@ import com.example.dementedapple5.sallelibrary.mainmenu.asyncTasks.SetBookImages
 import com.example.dementedapple5.sallelibrary.model.Book
 import kotlinx.android.synthetic.main.fav_book_item.view.*
 
+/**
+ * Adaptador para [Book].
+ *
+ * Esta clase consiste en generar un Adaptador para poder mostrar los datos en pantalla de un [ArrayList] de [Book] que el usuario ha escogido como favoritos.
+ *
+ * @constructor Crea una instancia de [FavBookAdapter] con una serie de atributos
+ * @property mFavBooks [ArrayList] de [Book].
+ *
+ * @see [MyFavBookViewHolder]
+ *
+ * @author Daniel de la Lastra
+ * @author Javier Torrus
+ */
 class FavBookAdapter(val mFavBooks: ArrayList<Book>) : RecyclerView.Adapter<FavBookAdapter.Companion.MyFavBookViewHolder>() {
 
     companion object {
+        /**
+         * Intermediario entre los datos recogidos y la vista.
+         *
+         * Esta clase consiste en mantener los datos en la vista sin tener que recargarlos y perder rendimiento en la renderización.
+         *
+         * @property mCardView Tipo de layout utilizado en la vista.
+         */
         class MyFavBookViewHolder(val mCardView: CardView) : RecyclerView.ViewHolder(mCardView)
     }
 

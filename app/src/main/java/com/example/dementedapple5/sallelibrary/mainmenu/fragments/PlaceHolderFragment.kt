@@ -11,6 +11,11 @@ import com.example.dementedapple5.sallelibrary.R
  * Marcador de posición de los [Fragment] "hijos".
  *
  * Se encarga de generar y mostrar un [Fragment] u otro dependiendo de la sección actual.
+ *
+ * @constructor Crea una instancia de [PlaceHolderFragment]
+ *
+ * @author Daniel de la Lastra
+ * @author Javier Torrus
  */
 class PlaceHolderFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

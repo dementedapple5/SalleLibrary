@@ -13,14 +13,34 @@ import com.example.dementedapple5.sallelibrary.model.SharedPreference
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_book_page.*
 
-
+/**
+ * Pantalla de detalles de un [Book].
+ *
+ * Se encarga de mostrar una pantalla con los detalles de un [Book] seleccionado por el usuario donde también puede añadirlo a favoritos.
+ *
+ * @see [BookLayout.OnAddedToWishlistListener]
+ * @see [AppCompatActivity]
+ *
+ * @author Daniel de la Lastra
+ * @author Javier Torrus
+ */
 class BookPage : AppCompatActivity(), BookLayout.OnAddedToWishlistListener {
+    /**
+     * Referencia al Authentication de Firebase para recoger datos del usuario.
+     */
     private lateinit var mAuth: FirebaseAuth
+
+    /**
+     * Se utiliza para realizar operaciones de borrado o inserción en la [SharedPreference] del usuario.
+     */
     var sharedPreference = SharedPreference()
+
+    /**
+     * Libro donde se mostrarán los detalles.
+     */
     var book = Book()
 
     override fun onAddedToWishlist(source: BookLayout, textToDisplay: String) {
-
         if (checkIfBookIsInWishlist(book)) {
             sharedPreference.removeFromWishlist(this, book)
             mBookLayout.setWishlistButtonIcon(R.drawable.ic_action_add)
@@ -80,6 +100,13 @@ class BookPage : AppCompatActivity(), BookLayout.OnAddedToWishlistListener {
         return super.onOptionsItemSelected(item)
     }
 
+    /**
+     * Comprobación de si un [Book] está ya dentro de las [SharedPreference] del usuario.
+     *
+     * [book] Libro por el que se va a realizar la comprobración
+     *
+     * @return [Boolean] Resultado de la operación.
+     */
     private fun checkIfBookIsInWishlist(book: Book): Boolean {
         val booksInWishlist: ArrayList<Book>? = sharedPreference.getBooksInWishlist(this)
 
@@ -94,6 +121,11 @@ class BookPage : AppCompatActivity(), BookLayout.OnAddedToWishlistListener {
         return false
     }
 
+    /**
+     * Actualiza el estado del botón dependiendo del resultado que ha dado la comprobación del [Book] en la [SharedPreference].
+     *
+     * [book] Libro por el que se va a realizar la comprobración.
+     */
     private fun updateUI(book: Book) {
         if (checkIfBookIsInWishlist(book)) {
             mBookLayout.setWishlistButtonIcon(R.drawable.ic_done)

@@ -34,6 +34,9 @@ import org.json.JSONObject
  *
  * @see [AppCompatActivity]
  * @see [LoaderManager]
+ *
+ * @author Daniel de la Lastra
+ * @author Javier Torrus
  */
 class TabbedActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<String> {
     /**

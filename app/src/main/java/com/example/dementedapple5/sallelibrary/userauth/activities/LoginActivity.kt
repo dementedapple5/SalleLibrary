@@ -29,6 +29,9 @@ import kotlinx.android.synthetic.main.activity_login.*
  * @see [OnCompleteListener]
  * @see [Bundle]
  * @see [GoogleSignInOptions]
+ *
+ * @author Daniel de la Lastra
+ * @author Javier Torrus
  */
 class LoginActivity : AppCompatActivity(), View.OnClickListener, OnCompleteListener<AuthResult> {
     private lateinit var mGoogleSignInClient: GoogleSignInClient

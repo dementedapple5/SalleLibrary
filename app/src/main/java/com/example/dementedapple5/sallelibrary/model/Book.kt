@@ -17,6 +17,9 @@ import java.io.Serializable
  * @property numPages Número de páginas.
  * @property description Descripción.
  * @property img Imagen de portada.
+ *
+ * @author Daniel de la Lastra
+ * @author Javier Torrus
  */
 class Book() : Serializable {
     var title: String = ""

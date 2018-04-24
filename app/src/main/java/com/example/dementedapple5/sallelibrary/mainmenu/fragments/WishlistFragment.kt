@@ -20,7 +20,11 @@ import kotlinx.android.synthetic.main.fragment_wishlist.*
  *
  * Se encarga de mostrar un [Fragment] donde se puede visualizar un listado de [Book] que el usuario ha seleccionado como favoritos.
  *
+ * @constructor Crea una instancia de [WishlistFragment]
  * @see [SharedPreference]
+ *
+ * @author Daniel de la Lastra
+ * @author Javier Torrus
  */
 class WishlistFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
